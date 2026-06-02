@@ -1,0 +1,65 @@
+/* theme.css - 颜色、动画、工具类 */
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 9px; border-radius: 999px;
+  background: var(--blue-soft); color: var(--blue);
+  font-weight: 800; font-size: 11px; white-space: nowrap;
+}
+.pill { display: inline-flex; padding: 2px 6px; border-radius: 999px; font-size: 10px; font-weight: 900; }
+.pill.blue { background: var(--blue-soft); color: var(--blue); }
+.pill.green { background: var(--green-soft); color: var(--green); }
+.pill.orange { background: var(--orange-soft); color: var(--orange); }
+.pill.purple { background: var(--purple-soft); color: var(--purple); }
+
+.live-dot {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10.5px; font-weight: 800; color: var(--green);
+}
+.live-dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(22,163,74,.12); }
+
+.progress-bar { height: 6px; border-radius: 999px; background: #eef2f7; overflow: hidden; }
+.progress-fill { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--blue), var(--green)); transition: width .8s cubic-bezier(.22,.61,.36,1); }
+
+.stage-chips { display: flex; gap: 4px; flex-wrap: wrap; }
+.stage-chip { padding: 4px 6px; border-radius: 999px; font-size: 9.5px; font-weight: 900; background: #f1f5f9; color: #64748b; transition: all .3s; }
+.stage-chip.on { background: var(--blue); color: #fff; }
+.stage-chip.done { background: var(--green-soft); color: var(--green); }
+
+/* insight cards */
+.insight {
+  border: 1px solid var(--line); border-radius: 14px;
+  background: #fff; padding: 14px;
+  opacity: .4; filter: grayscale(30%);
+  transition: all .5s ease; position: relative; overflow: hidden;
+}
+.insight::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: transparent; transition: background .4s; }
+.insight.active { opacity: 1; filter: grayscale(0); box-shadow: 0 6px 18px rgba(15,23,42,.05); }
+.insight.active::before { background: var(--blue); }
+.insight.active.green::before { background: var(--green); }
+.insight.active.orange::before { background: var(--orange); }
+.insight.active.purple::before { background: var(--purple); }
+
+@keyframes cardPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37,99,235,.2); }
+  70% { box-shadow: 0 0 0 8px rgba(37,99,235,0); }
+  100% { box-shadow: 0 6px 18px rgba(15,23,42,.05); }
+}
+.insight.highlight { animation: cardPulse .9s ease; }
+.insight h4 { margin: 0 0 9px; font-size: 12.5px; display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+
+.kv { display: grid; grid-template-columns: 80px 1fr; gap: 3px 7px; font-size: 11px; line-height: 1.4; }
+.k { color: var(--muted); }
+.v { color: #263244; font-weight: 700; }
+.action-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.action-row button { border-radius: 999px; padding: 4px 8px; font-size: 10px; font-weight: 800; background: var(--blue); color: #fff; transition: all .15s; }
+.action-row button:hover { opacity: .85; }
+.action-row button.secondary { background: #eef2ff; color: #3730a3; }
+
+.mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.mini-card { border: 1px solid #edf2f7; background: #f8fafc; border-radius: 10px; padding: 7px; color: #475569; font-size: 10.5px; line-height: 1.35; }
+.mini-card strong { display: block; color: #0f172a; font-size: 11px; margin-bottom: 2px; }
+
+.checks { list-style: none; padding: 0; display: grid; gap: 3px; font-size: 11px; color: #334155; }
+.checks li { display: flex; gap: 4px; line-height: 1.35; }
+.checks li.done::before { content: "✓"; color: var(--green); font-weight: 900; }
+.checks li.todo::before { content: "□"; color: #94a3b8; font-weight: 900; }

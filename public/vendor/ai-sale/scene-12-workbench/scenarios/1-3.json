@@ -1,0 +1,206 @@
+{
+  "id": "1-3",
+  "stageId": "P1",
+  "name": "老客户转介绍开场",
+  "customerName": "王总",
+  "salesName": "小陈",
+  "polished": true,
+  "painPoint": "转介绍客户有一定信任基础，但销售如果处理不好，容易浪费熟人背书。开场既要承接介绍人信任，又不能显得过度销售。",
+  "highlights": [
+    "识别客户来源：老客户转介绍；",
+    "自动引用介绍人关系；",
+    "生成信任型开场话术；",
+    "提醒销售不要马上报价；",
+    "自动建立客户关联关系；",
+    "推荐发送相似客户案例。"
+  ],
+  "demoGoal": "展示 AI 如何帮助销售利用老客户背书，提高新客户破冰成功率。",
+  "messages": [
+    {
+      "type": "system",
+      "content": "新客户来源：老客户张总推荐 张总备注：客户王总准备开一家社区快餐店，想了解炒菜机。 推荐策略：信任承接 \\+ 轻需求确认。"
+    },
+    {
+      "type": "sales",
+      "content": "王总您好，我是优特智厨的小陈，是张总推荐我联系您的。张总说您这边准备做一个社区快餐店，想提前了解一下智能炒菜设备。我先简单跟您对接一下，看看您这个店型适不适合。",
+      "sender": "小陈"
+    },
+    {
+      "type": "customer",
+      "content": "对，我还在筹备，主要是想看看这种设备能不能少请一个厨师。",
+      "sender": "王总"
+    },
+    {
+      "type": "ai-recommend",
+      "content": "客户已表达核心痛点：减少厨师。建议进入筹备店需求确认。",
+      "options": [],
+      "selected": 0
+    },
+    {
+      "type": "sales",
+      "content": "明白，您这个关注点很关键。筹备期提前规划后厨设备是比较合适的。我先了解一下，您预计门店面积多大？主要卖快餐套餐，还是小炒现炒？ ---",
+      "sender": "小陈"
+    }
+  ],
+  "annotations": [
+    null,
+    {
+      "fields": {
+        "客户来源": {"value": "老客户转介绍", "status": "current"},
+        "沉默时长": {"value": "新线索", "status": "current"},
+        "初始意向": {"value": "设备咨询", "status": "current"},
+        "客户大类": {"value": null, "status": "empty"},
+        "细分类别": {"value": null, "status": "empty"},
+        "核心关注点": {"value": null, "status": "empty"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "信任开场已发送", "status": "current"},
+        "客户意向": {"value": null, "status": "empty"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "25%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["线索接入", "介绍人识别：张总", "信任开场话术已发送"],
+        "pending": ["等待客户回复", "门店状态确认", "核心需求确认"]
+      },
+      "flows": [
+        {"label": "关联介绍人：张总", "icon": "link"},
+        {"label": "生成信任话术", "icon": "edit"}
+      ],
+      "cards": ["转介绍客户信任承接策略", "筹备期客户跟进模板"],
+      "nextAction": {
+        "suggestion": "等待客户回复，通过张总信任背书降低防御心理",
+        "reason": "转介绍客户有信任基础，但过度销售会消耗介绍人背书"
+      },
+      "agentLog": {
+        "received": "AI接收转介绍线索：张总推荐王总，准备开社区快餐店",
+        "analysis": "已识别线索来源为老客户张总推荐，客户王总正在筹备社区快餐店。转介绍线索的信任基础远高于一般线索——张总已有合作信任关系，其推荐天然降低了新客户的心理防御。AI生成信任承接型开场话术，以'张总推荐'建立第一层信任，用'看看店型适不适合'的非推销口吻降低初次沟通压力。",
+        "updates": ["客户来源→老客户转介绍", "初始意向→设备咨询", "当前阶段→P1"],
+        "recommendedAction": "发送信任承接型开场话术，提及张总推荐关系"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "老客户转介绍", "status": "current"},
+        "沉默时长": {"value": "新线索", "status": "current"},
+        "初始意向": {"value": "设备咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "new"},
+        "细分类别": {"value": "社区快餐（筹备中）", "status": "new"},
+        "核心关注点": {"value": "减少厨师配置", "status": "new"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": "降本诉求", "status": "new"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "客户已回复", "status": "current"},
+        "客户意向": {"value": "较高", "status": "new"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "40%", "status": "updated"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["转介绍触达成功", "门店状态确认：筹备中", "核心痛点确认：减少厨师"],
+        "pending": ["门店面积确认", "主营品类确认", "预计日单量确认"]
+      },
+      "flows": [
+        {"label": "更新客户画像", "icon": "edit"},
+        {"label": "创建筹备期跟进", "icon": "calendar-plus"}
+      ],
+      "cards": ["新店筹备后厨规划指南", "社区快餐少人化方案"],
+      "nextAction": {
+        "suggestion": "以'帮助客户提前规划后厨'的角度追问门店面积和主营品类",
+        "reason": "筹备期客户尚未形成明确采购方案，需先引导需求而非推荐产品"
+      },
+      "agentLog": {
+        "received": "客户回复：'对，我还在筹备，主要是想看看这种设备能不能少请一个厨师。'",
+        "analysis": "客户被转介绍成功触达并给出积极回应。从回复中提取关键信息：①门店状态为'筹备中'（非已运营门店，时间窗口充裕）②核心关注'能不能少请一个厨师'，降本减人是首要决策动机③客户用'这种设备'的措辞说明对智能炒菜机有一定认知但未深入了解。筹备期客户尚未被竞品锁定，是建立方案主导权的最佳窗口。下一步应以专业顾问身份帮助客户理清后厨配置需求。",
+        "updates": ["客户大类→社餐", "细分类别→社区快餐（筹备中）", "核心关注点→减少厨师配置", "痛点→降本诉求", "客户意向→较高"],
+        "recommendedAction": "以筹备规划角度追问门店面积和主营品类"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "老客户转介绍", "status": "current"},
+        "沉默时长": {"value": "新线索", "status": "current"},
+        "初始意向": {"value": "设备咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "社区快餐（筹备中）", "status": "current"},
+        "核心关注点": {"value": "减少厨师配置", "status": "current"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": "降本诉求", "status": "current"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "需求确认中", "status": "current"},
+        "客户意向": {"value": "较高", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "40%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["转介绍触达", "门店状态确认", "核心痛点确认"],
+        "pending": ["门店面积确认", "主营品类确认", "筹备期需求引导"]
+      },
+      "flows": [
+        {"label": "准备筹备期问询", "icon": "edit"}
+      ],
+      "cards": ["筹备期门店评估清单", "后厨面积-设备配置对照表"],
+      "nextAction": {
+        "suggestion": "以'提前规划后厨更合适'的顾问角度追问面积和品类",
+        "reason": "筹备期客户需被专业引导，直接推荐设备会适得其反"
+      },
+      "agentLog": {
+        "received": "AI分析客户'减少厨师'的核心诉求并生成筹备期确认策略",
+        "analysis": "客户明确表达'少请一个厨师'即降本减人需求，这正是智能炒菜机的核心价值场景。但客户尚在筹备期，缺少门店面积、品类等关键规划信息。AI判断此时应以'筹备期提前规划后厨设备更合适'的专业建议角度进行引导，帮助客户建立后厨配置思路的同时自然收集门店规模数据。",
+        "updates": [],
+        "recommendedAction": "以筹备规划角度追问门店面积和主营品类"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "老客户转介绍", "status": "current"},
+        "沉默时长": {"value": "新线索", "status": "current"},
+        "初始意向": {"value": "设备咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "社区快餐（筹备中）", "status": "current"},
+        "核心关注点": {"value": "减少厨师配置", "status": "current"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": "降本诉求", "status": "current"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "筹备问询已发送", "status": "current"},
+        "客户意向": {"value": "较高", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "40%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["转介绍触达", "信任建立：张总背书", "痛点识别", "筹备期问询已发送"],
+        "pending": ["等待面积/品类确认", "日单量预估", "开业时间确认"]
+      },
+      "flows": [
+        {"label": "等待客户回复", "icon": "bell"}
+      ],
+      "cards": ["筹备期门店后厨规划模板", "社区快餐设备配置案例"],
+      "nextAction": {
+        "suggestion": "等待客户提供门店面积和主营品类，准备针对性筹备方案",
+        "reason": "已引导客户建立后厨规划思路，等待回复以精确匹配方案"
+      },
+      "agentLog": {
+        "received": "销售按AI建议以筹备规划角度追问门店面积和主营品类",
+        "analysis": "销售已按AI建议发送筹备期确认话术。话术设计遵循'先肯定再引导'原则：以'关注点很关键'肯定客户想法建立共鸣，以'筹备期提前规划更合适'的专业立场导入问询，最后用'快餐套餐还是小炒现炒'的选项式提问降低回复门槛。当前转介绍客户画像已有40%，待面积和品类信息确认后可进入产品匹配阶段。",
+        "updates": ["响应状态→筹备问询已发送"],
+        "recommendedAction": "等待客户回复门店面积和主营品类信息"
+      }
+    }
+  ]
+}

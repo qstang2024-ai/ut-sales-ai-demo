@@ -1,0 +1,14 @@
+{
+  "name": "ut-sales-ai-demo-center",
+  "version": "0.1.0",
+  "private": true,
+  "description": "UT 销售 AI 助手 · 在线演示中心",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
