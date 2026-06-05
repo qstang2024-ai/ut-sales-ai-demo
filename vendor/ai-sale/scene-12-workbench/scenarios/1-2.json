@@ -1,0 +1,296 @@
+{
+  "id": "1-2",
+  "stageId": "P1",
+  "name": "展会客户回访破冰",
+  "customerName": "王总",
+  "salesName": "小陈",
+  "polished": true,
+  "painPoint": "展会客户通常一天接触很多供应商，回访时客户可能已经记不清具体沟通内容。销售需要快速唤醒客户记忆，并把展会上的短暂沟通转化为后续销售机会。",
+  "highlights": [
+    "识别线索来源：展会；",
+    "关联展会沟通备注；",
+    "自动生成回访话术；",
+    "提醒销售承接现场交流内容；",
+    "推荐发送现场演示视频或产品资料；",
+    "创建展会客户跟进任务。"
+  ],
+  "demoGoal": "展示 AI 能帮助销售把「展会名片」转化为有效客户跟进。",
+  "messages": [
+    {
+      "type": "system",
+      "content": "线索来源：上海餐饮设备展 展会备注：客户现场关注 G3 炒菜机，提到自己有 3 家快餐门店。 建议今天完成首次回访。"
+    },
+    {
+      "type": "ai-recommend",
+      "content": "A\\. 展会记忆唤醒型 B\\. 直接需求确认型 C\\. 资料跟进型",
+      "options": [],
+      "selected": 0
+    },
+    {
+      "type": "sales",
+      "content": "李总您好，我是优特智厨的小陈。昨天在上海餐饮设备展上我们聊过 G3 炒菜机，您当时提到现在有 3 家快餐门店，想看看能不能降低后厨对炒锅师傅的依赖。我今天跟您简单回访一下，看是否方便继续了解？",
+      "sender": "小陈"
+    },
+    {
+      "type": "customer",
+      "content": "哦，有印象。你们那个设备能做哪些菜？",
+      "sender": "王总"
+    },
+    {
+      "type": "ai-recommend",
+      "content": "客户开始关注产品适配性，可先回答菜品范围，再反问客户门店主力菜品。",
+      "options": [],
+      "selected": 0
+    },
+    {
+      "type": "sales",
+      "content": "我们这类设备更适合标准化程度比较高的快餐、小炒、盖饭类菜品。比如宫保鸡丁、鱼香肉丝、青椒肉丝、番茄炒蛋这类都比较常见。您现在门店主力菜品大概是哪几类？",
+      "sender": "小陈"
+    },
+    {
+      "type": "customer",
+      "content": "主要是盖饭和小炒，出餐要快。 ---",
+      "sender": "王总"
+    }
+  ],
+  "annotations": [
+    null,
+    {
+      "fields": {
+        "客户来源": {"value": "展会", "status": "current"},
+        "沉默时长": {"value": "7天", "status": "current"},
+        "初始意向": {"value": "回访跟进", "status": "current"},
+        "客户大类": {"value": null, "status": "empty"},
+        "细分类别": {"value": null, "status": "empty"},
+        "核心关注点": {"value": null, "status": "empty"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "待回访", "status": "current"},
+        "客户意向": {"value": null, "status": "empty"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "20%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["线索接入", "展会来源识别", "展会备注关联：关注G3+3家快餐门店"],
+        "pending": ["首次回访", "客户记忆唤醒", "门店数量核实"]
+      },
+      "flows": [
+        {"label": "关联展会备注", "icon": "tag"},
+        {"label": "生成回访话术", "icon": "edit"}
+      ],
+      "cards": ["展会客户回访策略卡", "展会记忆唤醒话术模板"],
+      "nextAction": {
+        "suggestion": "使用展会记忆唤醒型话术回访，先提及展会交流场景再过渡到需求确认",
+        "reason": "展会客户接触信息量大易遗忘，需先唤醒记忆再建立产品连接"
+      },
+      "agentLog": {
+        "received": "AI接收展会线索：客户现场关注G3炒菜机，自述3家快餐门店",
+        "analysis": "已识别线索来源为上海餐饮设备展，展会备注显示客户现场关注G3产品并自述拥有3家快餐门店。展会线索需在24-48小时内快速回访以维持客户记忆，避免被其他供应商信息覆盖。建议采用'展会记忆唤醒型'话术开场，先提及现场交流内容再自然过渡到需求确认，不直接发送产品资料。",
+        "updates": ["客户来源→展会", "沉默时长→7天", "初始意向→回访跟进", "当前阶段→P1"],
+        "recommendedAction": "发送展会记忆唤醒型回访话术"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "展会", "status": "current"},
+        "沉默时长": {"value": "7天", "status": "current"},
+        "初始意向": {"value": "回访跟进", "status": "current"},
+        "客户大类": {"value": null, "status": "empty"},
+        "细分类别": {"value": null, "status": "empty"},
+        "核心关注点": {"value": null, "status": "empty"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "回访话术已发送", "status": "updated"},
+        "客户意向": {"value": null, "status": "empty"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "25%", "status": "updated"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["线索接入", "回访话术已发送", "引用展会交流内容+G3关注"],
+        "pending": ["等待客户回复", "展会记忆确认", "门店数量核实"]
+      },
+      "flows": [
+        {"label": "等待客户回复", "icon": "bell"}
+      ],
+      "cards": ["展会客户跟进节奏指引"],
+      "nextAction": {
+        "suggestion": "等待客户回复，判断是否对展会沟通有记忆",
+        "reason": "第一次回访核心是唤醒记忆，不宜追加过多信息"
+      },
+      "agentLog": {
+        "received": "销售发送展会记忆唤醒型回访话术",
+        "analysis": "销售已按AI建议发送回访话术，话术中明确提及'昨天在展会上聊过G3炒菜机'以唤起客户记忆，同时引用'3家快餐门店'的展会备注信息增强话题延续性。话术以'是否方便继续了解'轻松收尾，给予客户宽松回复空间，降低拒绝概率。",
+        "updates": ["响应状态→回访话术已发送"],
+        "recommendedAction": "等待客户回复确认展会记忆"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "展会", "status": "current"},
+        "沉默时长": {"value": "7天", "status": "current"},
+        "初始意向": {"value": "回访跟进", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "new"},
+        "细分类别": {"value": "快餐", "status": "new"},
+        "核心关注点": {"value": "菜品适配", "status": "new"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "客户已回复", "status": "current"},
+        "客户意向": {"value": "初步兴趣", "status": "new"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "40%", "status": "updated"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["展会唤醒：客户有印象", "业态确认：社餐/快餐", "门店数量：3家快餐"],
+        "pending": ["菜品结构确认", "日单量确认", "后厨人员确认"]
+      },
+      "flows": [
+        {"label": "更新客户画像", "icon": "edit"},
+        {"label": "创建跟进任务", "icon": "calendar-plus"}
+      ],
+      "cards": ["G3适配菜品清单", "快餐门店菜品适配指南"],
+      "nextAction": {
+        "suggestion": "先回答设备能做哪些菜品，再反问门店主力菜品结构",
+        "reason": "客户从'你是谁'过渡到'设备能做什么'，顺势收集菜品信息"
+      },
+      "agentLog": {
+        "received": "客户回复：'哦，有印象。你们那个设备能做哪些菜？'",
+        "analysis": "客户被成功唤醒并确认对展会交流有记忆——'有印象'是关键信号。从回复中提取：①展会触达有效，客户仍有记忆痕迹②问题从泛泛了解转向具体菜品适配性，兴趣层次提升③尚未透露日单量和人员信息。当前客户已从'你是谁'过渡到'设备能做什么'，下一步应回答菜品范围同时反问门店主力菜品以继续收集运营数据。",
+        "updates": ["客户大类→社餐", "细分类别→快餐", "核心关注点→菜品适配", "客户意向→初步兴趣"],
+        "recommendedAction": "回答菜品范围后追问门店主力菜品类型"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "展会", "status": "current"},
+        "沉默时长": {"value": "7天", "status": "current"},
+        "初始意向": {"value": "回访跟进", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "菜品适配", "status": "current"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "菜品推介中", "status": "current"},
+        "客户意向": {"value": "初步兴趣", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "40%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["展会唤醒", "展会记忆确认", "业态确认"],
+        "pending": ["菜品范围回答", "菜品结构追问", "需求深度挖掘"]
+      },
+      "flows": [
+        {"label": "准备菜品推介", "icon": "edit"}
+      ],
+      "cards": ["标准化菜品示例清单", "快餐常见菜品对比卡"],
+      "nextAction": {
+        "suggestion": "列举标准化菜品示例（宫保鸡丁/鱼香肉丝等），再用反问推动画像建设",
+        "reason": "先给具体例子建立产品可信度，再反问获取门店菜品结构信息"
+      },
+      "agentLog": {
+        "received": "AI分析客户'能做哪些菜'的提问并生成双步回复策略",
+        "analysis": "客户从'有印象'自然过渡到产品功能询问，说明展会回访触达有效。AI判断此时应用具体菜品举例（宫保鸡丁、鱼香肉丝等标准化程度高的菜品）展示设备能力边界，同时以反问'门店主力菜品是哪几类'引导客户透露菜品结构信息。这种'展示+反问'节奏既能满足客户信息需求，又能推动画像从40%继续提升。",
+        "updates": [],
+        "recommendedAction": "先列举菜品示例，后追问门店主力菜品类型"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "展会", "status": "current"},
+        "沉默时长": {"value": "7天", "status": "current"},
+        "初始意向": {"value": "回访跟进", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "菜品适配", "status": "current"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "菜品推介已发送", "status": "current"},
+        "客户意向": {"value": "初步兴趣", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "40%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["展会唤醒", "菜品范围介绍", "菜品结构追问已发送"],
+        "pending": ["等待客户回复菜品结构", "日单量确认", "人员确认"]
+      },
+      "flows": [
+        {"label": "等待客户回复", "icon": "bell"}
+      ],
+      "cards": ["快餐门店菜品诊断清单"],
+      "nextAction": {
+        "suggestion": "等待客户提供主力菜品信息，不重复发送消息催促",
+        "reason": "已给出充分信息并提问，给客户自然思考回复时间"
+      },
+      "agentLog": {
+        "received": "销售按AI建议回答菜品范围并追问门店主力菜品",
+        "analysis": "销售已按建议介绍设备适配的标准化菜品类型（快餐、小炒、盖饭类），并列举宫保鸡丁、鱼香肉丝、青椒肉丝等具体菜品增加可信度。同时以'门店主力菜品大概是哪几类'的反问方式引导客户透露菜品结构信息，为后续产品型号匹配做准备。",
+        "updates": ["响应状态→菜品推介已发送"],
+        "recommendedAction": "等待客户回复主力菜品类型"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "展会", "status": "current"},
+        "沉默时长": {"value": "7天", "status": "current"},
+        "初始意向": {"value": "回访跟进", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐/盖饭/小炒", "status": "updated"},
+        "核心关注点": {"value": "出餐速度", "status": "updated"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": "盖饭+小炒", "status": "new"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "菜品已确认", "status": "current"},
+        "客户意向": {"value": "较高", "status": "updated"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "55%", "status": "updated"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["展会唤醒：客户有印象", "业态识别：快餐", "菜品结构确认：盖饭+小炒", "关注点确认：出餐速度"],
+        "pending": ["日单量确认", "后厨人员确认", "产品匹配"]
+      },
+      "flows": [
+        {"label": "更新菜品结构", "icon": "edit"},
+        {"label": "准备追问运营数据", "icon": "message-square"}
+      ],
+      "cards": ["盖饭/小炒设备适配说明", "快餐门店运营数据收集清单", "G3产品对比卡"],
+      "nextAction": {
+        "suggestion": "追问日单量、后厨人员数量和出餐高峰期情况",
+        "reason": "菜品结构已确认为盖饭+小炒，需运营数据匹配设备型号"
+      },
+      "agentLog": {
+        "received": "客户回复：'主要是盖饭和小炒，出餐要快。'",
+        "analysis": "收到菜品结构关键信息。综合分析：①门店主营盖饭和小炒，标准化程度较高，适配智能炒菜设备②客户明确强调'出餐要快'，即出餐效率是其隐性核心关注③3家快餐门店的体量需进一步确认日单量和后厨人员来判断适配设备型号。当前画像从40%提升至55%，已在P1阶段完成展会唤醒、业态识别和菜品结构确认三个关键节点。",
+        "updates": ["菜品结构→盖饭+小炒", "细分类别→快餐/盖饭/小炒", "核心关注点→出餐速度", "客户意向→较高"],
+        "recommendedAction": "追问日单量和后厨人员数量以匹配设备型号"
+      }
+    }
+  ]
+}

@@ -1,0 +1,568 @@
+{
+  "id": "1-4",
+  "stageId": "P1",
+  "name": "客户沉默后的智能唤醒",
+  "customerName": "王总",
+  "salesName": "小陈",
+  "polished": true,
+  "painPoint": "很多客户加了微信后不回复，销售不知道什么时候再跟、用什么理由跟、发什么内容才不显得打扰。",
+  "highlights": [
+    "自动识别客户沉默时长；",
+    "根据客户来源推荐唤醒方式；",
+    "生成低压跟进话术；",
+    "推荐合适资料；",
+    "创建后续跟进节奏；",
+    "标记客户响应状态。"
+  ],
+  "demoGoal": "展示 AI 能帮助销售有节奏地唤醒客户，而不是盲目追问。",
+  "messages": [
+    {
+      "type": "system",
+      "content": "客户已48小时未回复\n客户来源：官网留资\n留资内容：想了解炒菜机价格\n建议：不要直接催促，可用资料补充+轻问题唤醒。"
+    },
+    {
+      "type": "ai-recommend",
+      "content": "A. 资料补充型 B. 案例唤醒型 C. 价格澄清型",
+      "options": [],
+      "selected": 0
+    },
+    {
+      "type": "sales",
+      "content": "王总您好，我把您之前关注的炒菜机资料简单整理了一下。不同门店适合的型号差异比较大，如果您方便的话，我可以按您的门店类型给您发对应版本，避免资料太多看起来费时间。",
+      "sender": "小陈"
+    },
+    {
+      "type": "customer",
+      "content": "我是做快餐的，主要想知道大概多少钱。",
+      "sender": "王总"
+    },
+    {
+      "type": "ai-recommend",
+      "content": "客户被唤醒，并明确关注价格。建议先确认门店情况再给价格区间。",
+      "options": [],
+      "selected": 0
+    },
+    {
+      "type": "sales",
+      "content": "明白，快餐店适配度比较高。价格和型号、配置关系比较大。我先了解一下：您一天大概多少单？后厨现在几个人？",
+      "sender": "小陈"
+    },
+    {
+      "type": "customer",
+      "content": "一天200多单吧，现在两个炒锅师傅，午高峰有时候出不来。",
+      "sender": "王总"
+    },
+    {
+      "type": "ai-hint",
+      "content": "✓ 日单量200-300单 ✓ 2名炒锅师傅 ✓ 痛点：午高峰出餐压力 ✓ 画像完整度提升"
+    },
+    {
+      "type": "sales",
+      "content": "好的，那您这边主要是盖饭套餐多，还是小炒类菜品多？了解菜品结构有助于推荐更合适的配置方案。",
+      "sender": "小陈"
+    },
+    {
+      "type": "customer",
+      "content": "盖饭套餐比较多，小炒也有一些。",
+      "sender": "王总"
+    },
+    {
+      "type": "ai-hint",
+      "content": "✓ 主营：盖饭+小炒 ✓ 门店画像基本完善 ✓ 可进入P2需求洞察阶段"
+    },
+    {
+      "type": "sales",
+      "content": "明白了。按您这个情况，G3标准版会比较适配。高峰期分担压力、减少对炒锅师傅的依赖、出品更稳定。要不我给您发一份快餐门店的配置方案看看？",
+      "sender": "小陈"
+    },
+    {
+      "type": "customer",
+      "content": "行，你先发来看看。",
+      "sender": "王总"
+    },
+    {
+      "type": "sales",
+      "content": "好的王总，我马上把方案发您。这是一份快餐门店G3标准版的配置建议，里面有设备清单、适配菜品和大致价格区间。您看完有什么问题随时问我。",
+      "sender": "小陈"
+    }
+  ],
+  "annotations": [
+    null,
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": null, "status": "empty"},
+        "细分类别": {"value": null, "status": "empty"},
+        "核心关注点": {"value": null, "status": "empty"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "待唤醒", "status": "current"},
+        "客户意向": {"value": null, "status": "empty"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "10%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["沉默客户检测", "客户来源识别：官网留资", "初始意向识别：价格咨询"],
+        "pending": ["客户唤醒", "业态确认", "需求确认"]
+      },
+      "flows": [
+        {"label": "创建唤醒任务", "icon": "calendar-plus"},
+        {"label": "标记来源：官网", "icon": "tag"}
+      ],
+      "cards": ["沉默客户唤醒策略卡", "资料补充话术模板"],
+      "nextAction": {
+        "suggestion": "发送资料补充型唤醒话术，以整理资料为引子轻触碰达",
+        "reason": "沉默超48小时需低压触达，直接催促或报价会加高客户心理防御"
+      },
+      "agentLog": {
+        "received": "系统检测到客户已48小时未回复，触发沉默唤醒机制",
+        "analysis": "已识别沉默客户：来源为官网留资，初始意向为价格咨询。沉默48小时意味着客户可能在比价或已失去兴趣，但也可能只是信息过载未回复。AI推荐'资料补充型'唤醒策略——以帮客户整理资料为名义发送，既不显催促又提供价值，降低客户心理防御门槛。",
+        "updates": ["沉默检测→48小时", "客户来源→官网留资", "初始意向→价格咨询", "当前阶段→P1"],
+        "recommendedAction": "发送资料补充型唤醒话术"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": null, "status": "empty"},
+        "细分类别": {"value": null, "status": "empty"},
+        "核心关注点": {"value": null, "status": "empty"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "唤醒话术已发送", "status": "updated"},
+        "客户意向": {"value": null, "status": "empty"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "10%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["沉默检测", "唤醒话术已发送"],
+        "pending": ["等待客户回复", "业态确认", "需求挖掘"]
+      },
+      "flows": [
+        {"label": "等待客户回复", "icon": "bell"}
+      ],
+      "cards": ["沉默客户唤醒跟进节奏"],
+      "nextAction": {
+        "suggestion": "等待客户回复，不给客户施压感",
+        "reason": "唤醒话术以整理资料为由发送，客户回复意愿取决于对内容的兴趣度"
+      },
+      "agentLog": {
+        "received": "销售发送资料补充型唤醒话术给沉默客户",
+        "analysis": "销售已按AI建议发送资料补充型唤醒话术。话术以'帮您把资料简单整理了一下'为引子消除推销感，用'不同门店适合型号差异大'制造信息落差引发好奇心，最后以'避免资料太多费时间'体现为客户着想的态度。当前等待客户响应，不重复催促以保持低压氛围。",
+        "updates": ["响应状态→唤醒话术已发送"],
+        "recommendedAction": "等待客户回复确认是否被唤醒"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "new"},
+        "细分类别": {"value": "快餐", "status": "new"},
+        "核心关注点": {"value": "价格", "status": "new"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "已唤醒", "status": "updated"},
+        "客户意向": {"value": "初步兴趣", "status": "new"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "30%", "status": "updated"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["客户唤醒成功", "业态识别：快餐", "关注点识别：价格"],
+        "pending": ["日单量确认", "后厨人员确认", "门店规模确认"]
+      },
+      "flows": [
+        {"label": "更新客户画像", "icon": "edit"},
+        {"label": "标记价格敏感", "icon": "tag"},
+        {"label": "创建跟进提醒", "icon": "bell"}
+      ],
+      "cards": ["快餐门店基础配置价格说明", "价格与配置关系说明卡"],
+      "nextAction": {
+        "suggestion": "追问日单量和后厨人员，暂不报价",
+        "reason": "客户关注价格但尚未建立价值认知，直接报价容易流失"
+      },
+      "agentLog": {
+        "received": "客户回复：'我是做快餐的，主要想知道大概多少钱。'",
+        "analysis": "客户被成功唤醒！从回复中提取关键信息：①业态确认为快餐②核心关注点为价格。但需注意——客户在没有了解产品配置的情况下直接问价，说明其对智能炒菜机的价值认知尚未建立，存在比价心态。此时直接报价风险极高，应先通过运营数据确认需求再建立'价格对应价值'的认知框架。",
+        "updates": ["客户大类→社餐", "细分类别→快餐", "核心关注点→价格", "客户意向→初步兴趣", "响应状态→已唤醒"],
+        "recommendedAction": "追问日单量和后厨人员，暂不报价"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "价格", "status": "current"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "已唤醒", "status": "current"},
+        "客户意向": {"value": "初步兴趣", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "30%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["客户唤醒", "业态识别", "关注点标记"],
+        "pending": ["日单量确认", "人员确认", "产品推荐"]
+      },
+      "flows": [
+        {"label": "准备运营问询", "icon": "edit"}
+      ],
+      "cards": ["快餐门店日单量-设备匹配指南"],
+      "nextAction": {
+        "suggestion": "以'价格和型号配置相关'为切入点，自然过渡到运营数据问询",
+        "reason": "既回应了客户的价格关注，又为获取运营数据找到了合理理由"
+      },
+      "agentLog": {
+        "received": "AI分析客户价格问题并生成需求确认策略",
+        "analysis": "客户被唤醒后直接表达价格关注，这是典型的价格敏感型客户行为。AI判断此时不能直接报价——缺少门店运营数据无法确定适配型号，盲目报价可能报低（利润受损）或报高（客户流失）。建议以'价格和型号配置关系大'为切入点，将客户的价格关注转化为获取运营数据的合理理由。",
+        "updates": [],
+        "recommendedAction": "以价格与配置关系为由追问日单量和后厨人员"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "价格", "status": "current"},
+        "日单量": {"value": null, "status": "empty"},
+        "后厨人员": {"value": null, "status": "empty"},
+        "痛点": {"value": null, "status": "empty"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "需求确认中", "status": "current"},
+        "客户意向": {"value": "初步兴趣", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "30%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["客户唤醒", "业态识别", "运营问询已发送"],
+        "pending": ["等待日单量/人员回复", "产品匹配"]
+      },
+      "flows": [
+        {"label": "等待客户回复", "icon": "bell"}
+      ],
+      "cards": ["快餐门店运营数据收集模板"],
+      "nextAction": {
+        "suggestion": "等待客户提供日单量和后厨人员数据，不重复催促",
+        "reason": "已以价格关联配置为由开启问询，客户有价格兴趣会主动回复"
+      },
+      "agentLog": {
+        "received": "销售按AI建议以价格配置关联为由追问运营数据",
+        "analysis": "销售已按策略发送问询话术：先肯定'快餐店适配度高'建立信心，再用'价格和型号配置关系大'回应客户的价格关注并自然引入运营数据问询。话术以'一天大概多少单'和'后厨几个人'两个具体问题降低回复门槛。客户对价格有兴趣便会主动提供数据回应问询。",
+        "updates": ["响应状态→需求确认中"],
+        "recommendedAction": "等待客户提供日单量和后厨人员数据"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "出餐效率", "status": "updated"},
+        "日单量": {"value": "200-300单", "status": "new"},
+        "后厨人员": {"value": "2名炒锅师傅", "status": "new"},
+        "痛点": {"value": "午高峰出餐压力", "status": "new"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "数据已确认", "status": "current"},
+        "客户意向": {"value": "较高", "status": "updated"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "60%", "status": "updated"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["沉默唤醒", "日单量确认：200-300单", "人员确认：2名师傅", "痛点识别：午高峰出餐瓶颈"],
+        "pending": ["菜品结构确认", "产品匹配", "方案推荐"]
+      },
+      "flows": [
+        {"label": "更新门店画像", "icon": "edit"},
+        {"label": "标记高峰期痛点", "icon": "tag"},
+        {"label": "准备产品推荐", "icon": "file-text"}
+      ],
+      "cards": ["快餐门店200-300单配置方案", "G3标准版产品卡", "高峰期出餐优化方案"],
+      "nextAction": {
+        "suggestion": "确认菜品结构后进入产品推荐",
+        "reason": "运营数据已到位（200单/2师傅/午高峰瓶颈），需菜品结构完成最后匹配"
+      },
+      "agentLog": {
+        "received": "客户提供门店运营数据：'一天200多单，两个炒锅师傅，午高峰出不来'",
+        "analysis": "客户提供了关键的运营数据。综合分析：①日单量200-300单属于G3标准版的核心覆盖区间②2名炒锅师傅在午高峰存在出餐瓶颈③'午高峰出不来'揭示了客户的真实痛点——不是单纯的价格问题，而是出餐效率问题。这说明客户的核心关注已从表面的'价格'转向实际的'效率提升'。画像从30%跃升至60%，需进一步确认菜品结构后精确匹配产品。",
+        "updates": ["日单量→200-300单", "后厨人员→2名", "痛点→午高峰出餐压力", "核心关注点→出餐效率", "客户意向→较高"],
+        "recommendedAction": "确认菜品结构后匹配G3标准版"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "出餐效率", "status": "current"},
+        "日单量": {"value": "200-300单", "status": "current"},
+        "后厨人员": {"value": "2名炒锅师傅", "status": "current"},
+        "痛点": {"value": "午高峰出餐压力", "status": "current"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "需求确认中", "status": "current"},
+        "客户意向": {"value": "较高", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "60%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["客户唤醒", "业态识别", "日单量确认", "人员确认", "痛点识别"],
+        "pending": ["菜品结构确认", "设备选型", "方案报价"]
+      },
+      "flows": [
+        {"label": "确认菜品结构", "icon": "message-square"}
+      ],
+      "cards": ["盖饭/小炒设备适配表"],
+      "nextAction": {
+        "suggestion": "追问菜品结构（盖饭为主还是小炒为主），决定最终设备型号",
+        "reason": "不同菜品结构适配不同设备配置方案"
+      },
+      "agentLog": {
+        "received": "AI接收运营数据并生成菜品结构确认策略",
+        "analysis": "运营数据已完整：日单量200-300、2名师傅、午高峰痛点。当前画像60%，距离精确产品匹配仅差菜品结构信息。AI判断盖饭类标准化程度高适合G3标准版，小炒类需更灵活参数配置可能需要升级型号。追问菜品结构是最后一步信息收集，完成后即可进入产品推荐阶段。",
+        "updates": [],
+        "recommendedAction": "确认盖饭还是小炒为主，决定设备型号"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "出餐效率", "status": "current"},
+        "日单量": {"value": "200-300单", "status": "current"},
+        "后厨人员": {"value": "2名炒锅师傅", "status": "current"},
+        "痛点": {"value": "午高峰出餐压力", "status": "current"},
+        "菜品结构": {"value": null, "status": "empty"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "菜品问询已发送", "status": "current"},
+        "客户意向": {"value": "较高", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "60%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["沉默唤醒", "业态识别", "日单量/人员/痛点确认", "菜品问询已发送"],
+        "pending": ["菜品结构确认", "产品匹配", "方案推送"]
+      },
+      "flows": [
+        {"label": "等待客户回复", "icon": "bell"}
+      ],
+      "cards": ["快餐门店200-300单+盖饭配置参考"],
+      "nextAction": {
+        "suggestion": "等待客户回复菜品结构信息",
+        "reason": "已发送菜品问询，客户回复后即可完成画像+匹配产品"
+      },
+      "agentLog": {
+        "received": "销售按AI建议追问菜品结构",
+        "analysis": "销售已按AI建议发送菜品结构问询。话术以'了解菜品结构有助于推荐更合适的配置方案'说明追问目的，用'盖饭套餐多还是小炒类多'的选项式提问降低客户回复门槛。这是画像建设的最后一块拼图——运营数据（日单量/人员/痛点）已就位，只待菜品结构确认即可进入产品匹配。",
+        "updates": ["响应状态→菜品问询已发送"],
+        "recommendedAction": "等待客户回复菜品结构信息"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "出餐效率", "status": "current"},
+        "日单量": {"value": "200-300单", "status": "current"},
+        "后厨人员": {"value": "2名炒锅师傅", "status": "current"},
+        "痛点": {"value": "午高峰出餐压力", "status": "current"},
+        "菜品结构": {"value": "盖饭+小炒", "status": "new"},
+        "推荐产品": {"value": null, "status": "empty"},
+        "当前阶段": {"value": "P1", "status": "current"},
+        "响应状态": {"value": "菜品已确认", "status": "current"},
+        "客户意向": {"value": "较高", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "80%", "status": "updated"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["沉默客户→唤醒成功", "业态识别", "运营数据确认", "菜品结构确认：盖饭+小炒"],
+        "pending": ["产品匹配", "方案推荐", "报价"]
+      },
+      "flows": [
+        {"label": "匹配G3标准版", "icon": "search"},
+        {"label": "准备推荐话术", "icon": "edit"}
+      ],
+      "cards": ["G3标准版产品卡", "快餐门店应用案例", "200-300单配置方案"],
+      "nextAction": {
+        "suggestion": "推荐G3标准版，说明适配理由后询问是否发送方案",
+        "reason": "画像完善至80%，盖饭+小炒搭配G3标准版适配度高"
+      },
+      "agentLog": {
+        "received": "客户回复：'盖饭套餐比较多，小炒也有一些。'",
+        "analysis": "菜品结构已确认——盖饭为主、小炒为辅。这是G3标准版的最佳适配场景：盖饭类标准化程度高，G3产能（日均300份）完全覆盖200-300单需求且有余量；小炒类占比不高但存在，G3的灵活参数配置可兼顾。客户画像从60%提升至80%，已达到产品推荐门槛。当前阶段从P1向P2过渡：沉默→唤醒→业态→运营→菜品→即将产品匹配。",
+        "updates": ["菜品结构→盖饭+小炒", "推荐→G3标准版", "画像完整度→80%"],
+        "recommendedAction": "推荐G3标准版，说明适配理由"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "出餐效率", "status": "current"},
+        "日单量": {"value": "200-300单", "status": "current"},
+        "后厨人员": {"value": "2名炒锅师傅", "status": "current"},
+        "痛点": {"value": "午高峰出餐压力", "status": "current"},
+        "菜品结构": {"value": "盖饭+小炒", "status": "current"},
+        "推荐产品": {"value": "G3标准版", "status": "new"},
+        "当前阶段": {"value": "P1→P2", "status": "updated"},
+        "响应状态": {"value": "产品已推荐", "status": "current"},
+        "客户意向": {"value": "较高", "status": "current"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "85%", "status": "updated"}
+      },
+      "progress": {
+        "currentStage": "P1",
+        "completed": ["沉默唤醒", "画像建设：8项字段完成", "产品匹配：G3标准版"],
+        "pending": ["方案发送", "客户反馈", "报价"]
+      },
+      "flows": [
+        {"label": "发送配置方案", "icon": "send"}
+      ],
+      "cards": ["G3标准版产品卡", "快餐门店案例卡"],
+      "nextAction": {
+        "suggestion": "客户同意后发送G3配置方案，48小时后跟进反馈",
+        "reason": "客户意向正向，已接受推荐逻辑"
+      },
+      "agentLog": {
+        "received": "销售按AI匹配结果推荐G3标准版并询问是否发送方案",
+        "analysis": "销售已按AI匹配结果向客户推荐G3标准版，并附配套适配理由：①200-300单日均量是G3核心覆盖区间②单人操作可缓解双师傅午高峰出餐压力③盖饭为主的菜品结构标准化程度高，G3出品稳定性好。客户尚未直接表态但询问语气正向，应发送正式配置方案巩固决策信心。从沉默48小时到产品推荐，全链路AI辅助跟踪完成。",
+        "updates": ["推荐产品→G3标准版", "当前阶段→P1→P2"],
+        "recommendedAction": "客户同意后发送G3标准版配置方案"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "出餐效率", "status": "current"},
+        "日单量": {"value": "200-300单", "status": "current"},
+        "后厨人员": {"value": "2名炒锅师傅", "status": "current"},
+        "痛点": {"value": "午高峰出餐压力", "status": "current"},
+        "菜品结构": {"value": "盖饭+小炒", "status": "current"},
+        "推荐产品": {"value": "G3标准版", "status": "current"},
+        "当前阶段": {"value": "P2需求洞察", "status": "current"},
+        "响应状态": {"value": "方案发送中", "status": "current"},
+        "客户意向": {"value": "正向", "status": "new"},
+        "方案状态": {"value": null, "status": "empty"},
+        "画像完整度": {"value": "85%", "status": "current"}
+      },
+      "progress": {
+        "currentStage": "P2",
+        "completed": ["客户唤醒", "画像建设", "产品推荐", "方案已确认发送"],
+        "pending": ["方案阅读反馈", "报价准备", "试菜邀约"]
+      },
+      "flows": [
+        {"label": "发送方案", "icon": "send"},
+        {"label": "准备报价", "icon": "file-text"}
+      ],
+      "cards": ["G3配置清单", "快餐门店ROI测算"],
+      "nextAction": {
+        "suggestion": "发送G3标准版配置方案，48小时后跟进反馈",
+        "reason": "客户明确同意查看方案，发送后给客户充分阅读时间"
+      },
+      "agentLog": {
+        "received": "客户回复：'行，你先发来看看。'",
+        "analysis": "客户明确同意接收方案——这是关键转化节点。从48小时沉默到'你先发来看看'，说明客户①被有效唤醒②需求确认到位③对推荐逻辑认可④愿意进入实质了解阶段。全链路完成：沉默检测→低压唤醒→业态识别→运营数据收集→菜品确认→产品匹配→方案推送。这是AI全流程辅助的典型成功案例：用对的节奏，在合适的时间发送合适的内容。",
+        "updates": ["客户意向→正向", "全链路→沉默→唤醒→画像→推荐→方案"],
+        "recommendedAction": "发送G3标准版配置方案，48h后跟进"
+      }
+    },
+    {
+      "fields": {
+        "客户来源": {"value": "官网留资", "status": "current"},
+        "沉默时长": {"value": "48小时", "status": "current"},
+        "初始意向": {"value": "价格咨询", "status": "current"},
+        "客户大类": {"value": "社餐", "status": "current"},
+        "细分类别": {"value": "快餐", "status": "current"},
+        "核心关注点": {"value": "出餐效率", "status": "current"},
+        "日单量": {"value": "200-300单", "status": "current"},
+        "后厨人员": {"value": "2名炒锅师傅", "status": "current"},
+        "痛点": {"value": "午高峰出餐压力", "status": "current"},
+        "菜品结构": {"value": "盖饭+小炒", "status": "current"},
+        "推荐产品": {"value": "G3标准版", "status": "current"},
+        "当前阶段": {"value": "P2需求洞察", "status": "current"},
+        "响应状态": {"value": "方案已发送", "status": "current"},
+        "客户意向": {"value": "正向", "status": "current"},
+        "方案状态": {"value": "已发送", "status": "new"},
+        "画像完整度": {"value": "90%", "status": "updated"}
+      },
+      "progress": {
+        "currentStage": "P2",
+        "completed": ["客户唤醒", "画像建设：9项字段", "产品匹配：G3标准版", "方案发送完成"],
+        "pending": ["方案反馈", "报价准备", "试菜邀约"]
+      },
+      "flows": [
+        {"label": "跟进方案反馈", "icon": "message-square"},
+        {"label": "准备报价", "icon": "file-text"}
+      ],
+      "cards": ["G3配置清单", "快餐门店ROI回本测算"],
+      "nextAction": {
+        "suggestion": "48小时后跟进方案阅读反馈，准备进入报价阶段",
+        "reason": "方案已发送，给客户充分阅读和内部讨论时间"
+      },
+      "agentLog": {
+        "received": "销售发送G3标准版配置方案给客户",
+        "analysis": "客户同意后，销售已将G3标准版配置方案发送给客户。方案包含设备清单、适配菜品和大致价格区间，帮助客户建立完整的产品认知。从沉默48小时的官网留资客户到收到定制化配置方案，全流程AI辅助完成：唤醒策略选择→画像建设→产品匹配→方案生成。当前进入P2需求洞察阶段，下一步等待方案反馈后准备正式报价和试菜邀约。",
+        "updates": ["方案状态→已发送", "画像完整度→90%"],
+        "recommendedAction": "48h后跟进方案反馈，准备报价与试菜邀约"
+      }
+    }
+  ]
+}
