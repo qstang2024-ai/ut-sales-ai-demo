@@ -37,7 +37,7 @@ function iframePage(url, title) {
     <script>(function check(){var el=document.getElementById('${id}');var ifr=el&&el.querySelector('iframe');setTimeout(function(){try{var doc=ifr&&ifr.contentDocument;if(!doc||!doc.body||doc.body.innerHTML.trim().length<20){el.innerHTML='<div class="iframe-fallback"><div style="font-size:48px;margin-bottom:14px;">🔗</div><h3>当前页面无法直接嵌入展示</h3><p>请点击下方按钮打开${title}</p><a href="${url}" target="_blank" class="survey-btn primary" style="display:inline-block;margin-top:12px;text-decoration:none;">打开${title} ↗</a></div>';}}catch(e){}},4000);})();</script>`;
 }
 
-const tabIds = ['bizvalue','scenario','scene3','scene5','scene4','techarch','survey'];
+const tabIds = ['bizvalue','scenario','scene3','scene5','scene4','techarch','survey','roadmap'];
 
 class App {
   constructor() {
@@ -96,6 +96,12 @@ class App {
         break;
       case 'survey':
         if (!this._surveyLoaded) { loadPage('survey').then(m => { new m.TopSalesSurveyPage(pane); this._surveyLoaded = true; }).catch(() => { pane.innerHTML = '<div class="placeholder-page"><h2>加载失败</h2></div>'; }); }
+        break;
+      case 'roadmap':
+        if (!this._roadmapLoaded) {
+          pane.innerHTML = `<iframe src="./legacy/ai-product-roadmap/index.html" class="iframe-main roadmap-frame" title="AI 产品规划" style="border:0;width:100%;min-height:calc(100vh - 120px);display:block;background:#06080f;"></iframe>`;
+          this._roadmapLoaded = true;
+        }
         break;
     }
   }

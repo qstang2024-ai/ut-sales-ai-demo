@@ -6,4 +6,5 @@ export const tabs = [
   { id: 'scene4', label: 'PC坐席' },
   { id: 'techarch', label: '产品技术架构' },
   { id: 'survey', label: '销售调研' },
+  { id: 'roadmap', label: 'AI产品规划' },
 ];
