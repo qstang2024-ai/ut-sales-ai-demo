@@ -1,0 +1,2679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 产品规划 · 项目立项提案</title>
+  <style>
+    html, body { margin: 0; min-height: 100%; background: #06080f; }
+/* ============================================================
+   Deck container — 深色科技风
+   ============================================================ */
+.deck {
+  margin: -16px -20px -24px;
+  background: #06080f;
+  color: #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+}
+
+.slide {
+  position: relative;
+  min-height: 76vh;
+  padding: 40px 7vw 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1px solid rgba(99, 102, 241, 0.08);
+  overflow: hidden;
+}
+
+/* 背景网格点缀 */
+.slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.06) 0%, transparent 40%);
+  pointer-events: none;
+}
+.slide > * { position: relative; z-index: 1; }
+
+.slide-num {
+  position: absolute;
+  top: 24px;
+  right: 7vw;
+  font-size: 13px;
+  color: rgba(148, 163, 184, 0.4);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.slide-title {
+  font-size: clamp(22px, 2.6vw, 36px);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 28px 0;
+  line-height: 1.3;
+  letter-spacing: -0.5px;
+}
+
+/* 通用金句 */
+.punchline {
+  margin-top: 28px;
+  font-size: clamp(16px, 1.6vw, 20px);
+  color: #cbd5e1;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+.punchline-strong {
+  margin-top: 32px;
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 700;
+  color: #fff;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(251, 191, 36, 0.08));
+  border-left: 3px solid #fbbf24;
+  border-radius: 8px;
+  display: inline-block;
+  align-self: center;
+}
+.hl {
+  color: #fbbf24;
+  font-weight: 700;
+}
+.hl-inline {
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ============================================================
+   Slide 1: 项目启动提案
+   ============================================================ */
+.slide-cover {
+  background:
+    radial-gradient(ellipse at top, rgba(99, 102, 241, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0e27 0%, #06080f 100%);
+  padding-top: 56px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.cover-tag {
+  font-size: 12px;
+  color: #818cf8;
+  letter-spacing: 4px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+}
+
+.cover-title {
+  font-size: clamp(30px, 4.2vw, 56px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  margin: 0 auto 20px;
+  max-width: 1100px;
+}
+
+.grad-text {
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.cover-sub {
+  font-size: clamp(14px, 1.4vw, 18px);
+  color: #94a3b8;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+  max-width: 760px;
+}
+
+.cover-points {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.cp-item {
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  padding: 20px 20px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+  transition: all 0.3s;
+}
+.cp-item:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+}
+
+.cp-num {
+  font-size: 22px;
+  font-weight: 800;
+  color: #818cf8;
+  letter-spacing: 1px;
+  flex-shrink: 0;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.cp-block {
+  flex: 1;
+}
+
+.cp-h {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+.cp-text {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.65;
+}
+
+.cover-punchline {
+  margin: 32px auto 0;
+  font-size: clamp(15px, 1.5vw, 18px);
+  color: #cbd5e1;
+  font-weight: 600;
+  text-align: center;
+  padding: 14px 28px;
+  background: rgba(251, 191, 36, 0.06);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 10px;
+  display: inline-block;
+  align-self: center;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: #475569;
+  letter-spacing: 2px;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.5; }
+  50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+
+/* ============================================================
+   Slide 2: 为什么销售第一站
+   ============================================================ */
+.slide-why {
+  background: linear-gradient(180deg, #06080f 0%, #0a1129 100%);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.why-card {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(99, 102, 241, 0.04));
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  border-radius: 14px;
+  padding: 20px 22px 18px;
+  transition: all 0.3s;
+}
+.why-card:hover {
+  border-color: rgba(99, 102, 241, 0.5);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.08));
+}
+
+.why-icon { font-size: 24px; margin-bottom: 8px; }
+.why-h { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.why-p { font-size: 13px; color: #94a3b8; line-height: 1.65; }
+
+/* ============================================================
+   Slide 3 / 4: 复用流程容器背景（slide-station 4 卡片 / slide-loop 流程图）
+   ============================================================ */
+.slide-tech,
+.slide-station,
+.slide-loop {
+  background: linear-gradient(180deg, #0a1129 0%, #0a0e27 100%);
+}
+
+.tech-flow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 16px 0 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tf-node {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 16px 14px 14px;
+  text-align: center;
+  width: 180px;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.tf-node:hover { transform: translateY(-3px); border-color: #818cf8; }
+.tf-node.tf-highlight {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(139, 92, 246, 0.15));
+  border-color: #818cf8;
+  box-shadow: 0 0 24px rgba(129, 140, 248, 0.3);
+}
+.tf-node.tf-highlight-warm {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.18), rgba(245, 158, 11, 0.1));
+  border-color: #fbbf24;
+  box-shadow: 0 0 24px rgba(251, 191, 36, 0.25);
+}
+
+.tf-icon { font-size: 22px; margin-bottom: 6px; }
+.tf-label {
+  font-size: 14px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: 0.3px;
+}
+.tf-sub {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.6;
+  flex: 1;
+}
+.tf-highlight-warm .tf-sub { color: #fde68a; }
+
+.tf-arrow {
+  font-size: 20px;
+  color: #6366f1;
+  font-weight: 700;
+  align-self: center;
+  flex-shrink: 0;
+}
+.tf-arrow.tf-loop {
+  color: #fbbf24;
+  font-size: 24px;
+}
+
+.tech-desc {
+  margin-top: 24px;
+  font-size: clamp(15px, 1.5vw, 19px);
+  color: #cbd5e1;
+  text-align: center;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+/* ============================================================
+   Slide 4: CRM + AI 叠加增强
+   ============================================================ */
+.slide-vs {
+  background: linear-gradient(180deg, #0a0e27 0%, #0d1633 100%);
+}
+
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1.15fr;
+  gap: 16px;
+  align-items: stretch;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.vs-col {
+  border-radius: 14px;
+  padding: 22px 24px;
+  border: 1px solid;
+}
+.vs-col.vs-old {
+  background: rgba(100, 116, 139, 0.05);
+  border-color: rgba(100, 116, 139, 0.22);
+  opacity: 0.92;
+}
+.vs-col.vs-new {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.14), rgba(139, 92, 246, 0.1));
+  border-color: rgba(129, 140, 248, 0.5);
+  box-shadow: 0 0 32px rgba(129, 140, 248, 0.18);
+}
+
+.vs-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.vs-old .vs-tag { background: rgba(100, 116, 139, 0.2); color: #94a3b8; }
+.vs-new .vs-tag { background: rgba(129, 140, 248, 0.28); color: #c7d2fe; }
+
+.vs-h { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 14px; }
+
+.vs-list { list-style: none; padding: 0; margin: 0; }
+.vs-list li {
+  font-size: 13.5px;
+  color: #cbd5e1;
+  padding: 6px 0 6px 22px;
+  position: relative;
+  line-height: 1.55;
+}
+.vs-list li::before {
+  content: '·';
+  position: absolute;
+  left: 6px;
+  font-size: 22px;
+  color: #818cf8;
+  line-height: 1;
+}
+.vs-old .vs-list li { color: #94a3b8; }
+.vs-old .vs-list li::before { color: #64748b; }
+
+/* 中间「+ AI 增强层」标记 */
+.vs-plus {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 6px;
+}
+.vs-plus-symbol {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.5);
+}
+.vs-plus-label {
+  font-size: 11px;
+  color: #a78bfa;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* punchline 软高亮（区别于 .hl 金色） */
+.hl-soft {
+  color: #c7d2fe;
+  font-weight: 600;
+}
+
+/* ============================================================
+   Slide 5: 3 个月研究 + 试点节奏（4 卡片 2×2）
+   ============================================================ */
+.slide-pilot {
+  background: linear-gradient(180deg, #0d1633 0%, #0a0e27 100%);
+}
+
+.rhythm-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.rhythm-card {
+  border-radius: 14px;
+  padding: 20px 22px 18px;
+  border: 1px solid;
+  position: relative;
+  transition: all 0.3s;
+}
+.rhythm-card:hover { transform: translateY(-2px); }
+
+/* 第 1 个月：研究（蓝色 — 起点） */
+.rhythm-research {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(99, 102, 241, 0.05));
+  border-color: rgba(96, 165, 250, 0.4);
+}
+/* 第 2 个月：试点（紫色 — 推进） */
+.rhythm-pilot {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(99, 102, 241, 0.06));
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.18);
+}
+/* 第 3 个月：复盘（金色 — 验收） */
+.rhythm-review {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(245, 158, 11, 0.04));
+  border-color: rgba(251, 191, 36, 0.4);
+}
+/* 第 4 个月：复制（虚线 — 未来） */
+.rhythm-replicate {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06), rgba(139, 92, 246, 0.03));
+  border-color: rgba(99, 102, 241, 0.3);
+  border-style: dashed;
+}
+
+.rh-month {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.rhythm-research .rh-month { color: #60a5fa; }
+.rhythm-pilot .rh-month { color: #a78bfa; }
+.rhythm-review .rh-month { color: #fbbf24; }
+.rhythm-replicate .rh-month { color: #818cf8; }
+
+/* D-010J-3F-1: 三阶段标签（研究设计 / 试点实施 / 场景复制） */
+.rh-stage-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  background: rgba(96, 165, 250, 0.22);
+  color: #93c5fd;
+  text-transform: uppercase;
+}
+.rh-stage-tag-pilot {
+  background: rgba(167, 139, 250, 0.28);
+  color: #ddd6fe;
+}
+.rh-stage-tag-replicate {
+  background: rgba(99, 102, 241, 0.22);
+  color: #c7d2fe;
+}
+
+/* D-010J-3F-1: 节奏卡片正文（替代原 ul 列表） */
+.rh-desc {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.65;
+  margin-top: 4px;
+}
+.rhythm-replicate .rh-desc { color: #94a3b8; }
+
+.rh-phase {
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: 0.3px;
+}
+
+.rh-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.rh-list li {
+  font-size: 13px;
+  color: #cbd5e1;
+  padding: 5px 0 5px 18px;
+  position: relative;
+  line-height: 1.55;
+}
+.rh-list li::before {
+  content: '·';
+  position: absolute;
+  left: 4px;
+  font-size: 22px;
+  line-height: 1;
+  color: #818cf8;
+}
+.rhythm-research .rh-list li::before { color: #60a5fa; }
+.rhythm-pilot .rh-list li::before { color: #a78bfa; }
+.rhythm-review .rh-list li::before { color: #fbbf24; }
+.rhythm-replicate .rh-list li::before { color: #818cf8; }
+
+/* ============================================================
+   Slide 6: A/B/C 三档预算
+   ============================================================ */
+.slide-budget {
+  background: linear-gradient(180deg, #0a0e27 0%, #0a1129 100%);
+}
+
+.budget-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.budget-card {
+  position: relative;
+  border-radius: 14px;
+  padding: 22px 22px 20px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+
+.budget-card.budget-a {
+  background: linear-gradient(180deg, rgba(100, 116, 139, 0.08), rgba(100, 116, 139, 0.03));
+  border-color: rgba(148, 163, 184, 0.25);
+}
+.budget-card.budget-b {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.18), rgba(139, 92, 246, 0.08));
+  border-color: rgba(129, 140, 248, 0.55);
+  box-shadow: 0 0 32px rgba(129, 140, 248, 0.22);
+  transform: translateY(-4px);
+}
+.budget-card.budget-c {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.06), rgba(99, 102, 241, 0.02));
+  border-color: rgba(99, 102, 241, 0.22);
+  border-style: dashed;
+}
+
+.bc-recommend {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  color: #1a1a2e;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.35);
+}
+
+.bc-stage {
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.budget-a .bc-stage { color: #94a3b8; }
+.budget-b .bc-stage { color: #c7d2fe; }
+.budget-c .bc-stage { color: #818cf8; }
+
+.bc-name {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+}
+
+.bc-meta {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.bc-meta-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bc-label {
+  font-size: 10px;
+  color: #64748b;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.bc-value {
+  font-size: 13px;
+  color: #e2e8f0;
+  font-weight: 700;
+}
+.bc-value-low { color: #4ade80; }
+.bc-value-mid { color: #fbbf24; }
+.bc-value-high { color: #f87171; }
+
+.bc-section { margin-bottom: 12px; }
+.bc-section:last-child { margin-bottom: 0; }
+
+.bc-h {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: #64748b;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.bc-p {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+.budget-a .bc-p { color: #94a3b8; }
+
+/* D-010J-3F-1: A+B 建议批准组（顶部金色光带） */
+.budget-approved {
+  position: relative;
+}
+.budget-approved::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* D-010J-3F-1: 弱化 C 档（保留虚线，降低饱和度） */
+.budget-card.budget-c {
+  opacity: 0.78;
+}
+.budget-card.budget-c:hover {
+  opacity: 1;
+}
+
+/* D-010J-3F-1: 「本阶段建议先批准 A+B」提示条 */
+.budget-approve {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 18px auto 0;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(167, 139, 250, 0.06));
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: 10px;
+  max-width: 1180px;
+  box-shadow: 0 0 24px rgba(251, 191, 36, 0.1);
+}
+.ba-label {
+  flex-shrink: 0;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.18);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+.ba-text {
+  font-size: 13.5px;
+  color: #fff;
+  line-height: 1.55;
+}
+.ba-text strong {
+  color: #fff;
+  font-weight: 700;
+}
+.ba-stage-a, .ba-stage-b {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 12px;
+  margin: 0 2px;
+}
+.ba-stage-a {
+  background: rgba(148, 163, 184, 0.3);
+  color: #e2e8f0;
+}
+.ba-stage-b {
+  background: rgba(167, 139, 250, 0.4);
+  color: #fff;
+}
+
+/* ============================================================
+   通用 slide-sub（第 7-9 屏副标题）
+   ============================================================ */
+.slide-sub {
+  font-size: clamp(13px, 1.2vw, 15px);
+  color: #94a3b8;
+  margin: -16px 0 24px;
+  line-height: 1.6;
+  max-width: 900px;
+}
+
+/* ============================================================
+   Slide 7: 信息流架构 — 业务现场 → AI 信息收集 → 组织知识资产
+   ============================================================ */
+.slide-infoflow {
+  background: linear-gradient(180deg, #0a1129 0%, #0d1633 100%);
+}
+
+.infoflow-grid {
+  display: grid;
+  grid-template-columns: 1fr 32px 1.05fr 32px 1.05fr;
+  gap: 8px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.if-col {
+  border-radius: 14px;
+  padding: 18px 18px 16px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+
+.if-source {
+  background: rgba(96, 165, 250, 0.06);
+  border-color: rgba(96, 165, 250, 0.28);
+}
+.if-engine {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.18), rgba(139, 92, 246, 0.08));
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 0 32px rgba(129, 140, 248, 0.18);
+}
+.if-asset {
+  background: linear-gradient(180deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.04));
+  border-color: rgba(251, 191, 36, 0.35);
+}
+
+.if-col-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  background: rgba(96, 165, 250, 0.18);
+  color: #60a5fa;
+  align-self: flex-start;
+}
+.if-col-tag-glow {
+  background: rgba(167, 139, 250, 0.25);
+  color: #c7d2fe;
+}
+.if-col-tag-asset {
+  background: rgba(251, 191, 36, 0.22);
+  color: #fbbf24;
+}
+
+.if-col-h {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.if-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.if-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #e2e8f0;
+  font-weight: 500;
+}
+.if-item-engine {
+  background: rgba(167, 139, 250, 0.12);
+  border-color: rgba(167, 139, 250, 0.3);
+  color: #ddd6fe;
+}
+.if-item-asset {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.25);
+  color: #fde68a;
+  text-align: center;
+  font-weight: 600;
+}
+
+.if-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  color: #6366f1;
+}
+.if-arrow-2 { color: #fbbf24; }
+
+/* D-010J-3F-1: 第 7 屏备用解释小字 */
+.infoflow-note {
+  margin: 14px auto 0;
+  text-align: center;
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.7;
+  font-style: italic;
+  max-width: 880px;
+}
+
+/* ============================================================
+   Slide 8 / 9: AI + 售后 / AI + 研发（场景卡片）
+   ============================================================ */
+.slide-aftersale {
+  background: linear-gradient(180deg, #0d1633 0%, #0a0e27 100%);
+}
+.slide-rd {
+  background: linear-gradient(180deg, #0a0e27 0%, #0a1129 100%);
+}
+
+.scene-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.scene-card {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.03));
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 14px;
+  padding: 18px 16px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+.scene-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(129, 140, 248, 0.55);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+}
+
+/* 研发主题：紫色调 */
+.scene-rd {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.03));
+  border-color: rgba(139, 92, 246, 0.28);
+}
+.scene-rd:hover {
+  border-color: rgba(167, 139, 250, 0.55);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.15);
+}
+
+/* 闭环卡片（第 5 张：反哺/复盘）金色高亮 */
+.scene-card-loop {
+  background: linear-gradient(180deg, rgba(251, 191, 36, 0.14), rgba(245, 158, 11, 0.04));
+  border-color: rgba(251, 191, 36, 0.42);
+}
+.scene-card-loop:hover {
+  border-color: rgba(251, 191, 36, 0.7);
+  box-shadow: 0 8px 24px rgba(251, 191, 36, 0.2);
+}
+
+.scene-num {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #818cf8;
+  margin-bottom: 8px;
+}
+.scene-rd .scene-num { color: #a78bfa; }
+.scene-card-loop .scene-num { color: #fbbf24; }
+
+.scene-h {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.scene-p {
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.65;
+  flex: 1;
+}
+.scene-card-loop .scene-p { color: #fde68a; }
+
+/* ============================================================
+   Slide 10: AI + 制造供应链（场景卡片，蓝青色调，含图标）
+   ============================================================ */
+.slide-manufacture {
+  background: linear-gradient(180deg, #0a1129 0%, #0d1633 100%);
+}
+
+.scene-manu {
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.1), rgba(59, 130, 246, 0.04));
+  border-color: rgba(34, 211, 238, 0.28);
+}
+.scene-manu:hover {
+  border-color: rgba(34, 211, 238, 0.6);
+  box-shadow: 0 8px 24px rgba(34, 211, 238, 0.15);
+}
+.scene-manu .scene-num { color: #22d3ee; }
+.scene-icon {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+/* ============================================================
+   Slide 11: AI + 组织管理（流动结构 — 节点 + 箭头）
+   ============================================================ */
+.slide-management {
+  background: linear-gradient(180deg, #0d1633 0%, #0a0e27 100%);
+}
+
+.mgmt-flow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mgmt-node {
+  flex: 1;
+  min-width: 170px;
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.03));
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  border-radius: 12px;
+  padding: 16px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s;
+}
+.mgmt-node:hover {
+  transform: translateY(-3px);
+  border-color: rgba(129, 140, 248, 0.55);
+}
+.mgmt-node-key {
+  background: linear-gradient(180deg, rgba(167, 139, 250, 0.18), rgba(139, 92, 246, 0.06));
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.18);
+}
+.mgmt-node-end {
+  background: linear-gradient(180deg, rgba(251, 191, 36, 0.14), rgba(245, 158, 11, 0.04));
+  border-color: rgba(251, 191, 36, 0.42);
+}
+
+.mn-step {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  color: #818cf8;
+  margin-bottom: 4px;
+}
+.mgmt-node-key .mn-step { color: #c7d2fe; }
+.mgmt-node-end .mn-step { color: #fbbf24; }
+
+.mn-icon { font-size: 22px; margin-bottom: 6px; }
+.mn-h {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+.mn-p {
+  font-size: 12px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+.mgmt-node-end .mn-p { color: #fde68a; }
+
+.mgmt-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #6366f1;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.mgmt-arrow-loop {
+  color: #fbbf24;
+  font-size: 22px;
+}
+
+/* ============================================================
+   Slide 12: 成长飞轮（中心大脑 + 三层）
+   ============================================================ */
+.slide-growth {
+  background:
+    radial-gradient(ellipse at center, rgba(167, 139, 250, 0.1) 0%, transparent 60%),
+    linear-gradient(180deg, #0a0e27 0%, #0d1633 100%);
+}
+
+/* 核心公式 */
+.growth-formula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 14px 20px;
+  margin: -8px auto 22px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 12px;
+  max-width: 1100px;
+  font-size: clamp(13px, 1.4vw, 17px);
+  font-weight: 700;
+}
+
+.gf-target {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(167, 139, 250, 0.3), rgba(99, 102, 241, 0.2));
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(167, 139, 250, 0.45);
+}
+.gf-eq, .gf-plus {
+  color: #818cf8;
+  font-size: 1.1em;
+  font-weight: 800;
+}
+.gf-mul {
+  color: #fbbf24;
+  font-size: 1.25em;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+}
+.gf-term {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid;
+}
+.gf-term-blue {
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(96, 165, 250, 0.4);
+}
+.gf-term-purple {
+  color: #ddd6fe;
+  background: rgba(139, 92, 246, 0.14);
+  border-color: rgba(167, 139, 250, 0.45);
+}
+.gf-term-gold {
+  color: #fde68a;
+  background: rgba(251, 191, 36, 0.12);
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+/* 飞轮主体 — 中心大脑 + 三层 */
+.growth-wheel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 12px 20px;
+  max-width: 1180px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* 中心大脑：左侧大块，跨 3 行 */
+.gw-center {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 18px;
+  background:
+    radial-gradient(circle at center, rgba(167, 139, 250, 0.25) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(139, 92, 246, 0.08));
+  border: 2px solid rgba(167, 139, 250, 0.55);
+  border-radius: 16px;
+  box-shadow:
+    0 0 48px rgba(167, 139, 250, 0.25),
+    inset 0 0 24px rgba(167, 139, 250, 0.08);
+}
+.gw-center::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px;
+  background: conic-gradient(from 0deg, #60a5fa, #a78bfa, #fbbf24, #60a5fa);
+  opacity: 0.18;
+  z-index: -1;
+  filter: blur(8px);
+}
+.gw-center-icon {
+  font-size: 56px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 16px rgba(167, 139, 250, 0.6));
+}
+.gw-center-label {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* 三层（右侧） */
+.gw-layer {
+  grid-column: 2;
+  position: relative;
+  border-radius: 12px;
+  padding: 14px 18px 14px;
+  border: 1px solid;
+}
+
+.gw-layer-data {
+  grid-row: 1;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.14), rgba(59, 130, 246, 0.04));
+  border-color: rgba(96, 165, 250, 0.42);
+}
+.gw-layer-train {
+  grid-row: 2;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.14), rgba(139, 92, 246, 0.04));
+  border-color: rgba(167, 139, 250, 0.45);
+}
+.gw-layer-feedback {
+  grid-row: 3;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.14), rgba(245, 158, 11, 0.04));
+  border-color: rgba(251, 191, 36, 0.45);
+  box-shadow: 0 0 24px rgba(251, 191, 36, 0.1);
+}
+
+.gw-layer-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  vertical-align: 2px;
+}
+.gw-layer-data .gw-layer-tag { background: rgba(96, 165, 250, 0.28); color: #93c5fd; }
+.gw-layer-train .gw-layer-tag { background: rgba(167, 139, 250, 0.3); color: #ddd6fe; }
+.gw-layer-feedback .gw-layer-tag { background: rgba(251, 191, 36, 0.28); color: #fde68a; }
+
+.gw-layer-h {
+  display: inline;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 8px;
+}
+
+.gw-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 8px 0 6px;
+}
+.gw-tags span {
+  font-size: 11.5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+}
+.gw-layer-data .gw-tags span {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(96, 165, 250, 0.3);
+  color: #bfdbfe;
+}
+.gw-layer-train .gw-tags span {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(167, 139, 250, 0.32);
+  color: #ddd6fe;
+}
+.gw-layer-feedback .gw-tags span {
+  background: rgba(251, 191, 36, 0.08);
+  border-color: rgba(251, 191, 36, 0.3);
+  color: #fde68a;
+}
+
+.gw-layer-note {
+  font-size: 11.5px;
+  color: #94a3b8;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* 流向箭头（覆盖在 grid 上） */
+.gw-flow {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 800;
+  pointer-events: none;
+  display: none; /* 桌面端隐藏，避免与 grid 冲突；移动端启用 */
+}
+
+/* D-010J-3F-2: 公式下方注释（互相放大解释）*/
+.growth-formula-note {
+  max-width: 1100px;
+  margin: 8px auto 18px;
+  padding: 0 8px;
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.65;
+  text-align: center;
+  font-style: italic;
+}
+
+/* D-010J-3F-2: 三层成长内容用逗号分隔段落（替代原 chip 标签）*/
+.gw-layer-text {
+  font-size: 13px;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-top: 6px;
+}
+.gw-layer-data .gw-layer-text { color: #bfdbfe; }
+.gw-layer-train .gw-layer-text { color: #ddd6fe; }
+.gw-layer-feedback .gw-layer-text { color: #fde68a; }
+
+/* 底部强化 */
+.growth-punch {
+  margin: 22px auto 0;
+  text-align: center;
+}
+.growth-punch-main {
+  display: inline-block;
+  font-size: clamp(15px, 1.6vw, 19px);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.7;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(167, 139, 250, 0.08));
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  border-radius: 12px;
+}
+.growth-punch-sub {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+/* ============================================================
+   Slide 12: 不拥抱 AI vs 拥抱 AI（情绪转折页 — 强对比）
+   ============================================================ */
+.slide-contrast {
+  background:
+    radial-gradient(ellipse at right, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at left, rgba(15, 23, 42, 0.6) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0e27 0%, #0d1633 100%);
+}
+
+.contrast-title {
+  text-align: center;
+  font-size: clamp(24px, 2.8vw, 38px);
+  margin-bottom: 8px;
+}
+.contrast-sub {
+  text-align: center;
+  margin: 0 auto 20px;
+  max-width: 760px;
+}
+
+.contrast-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 12px;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contrast-col {
+  border-radius: 14px;
+  padding: 20px 22px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+}
+.contrast-dark {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3));
+  border-color: rgba(71, 85, 105, 0.35);
+  filter: grayscale(0.15);
+}
+.contrast-light {
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.16), rgba(139, 92, 246, 0.06));
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 0 32px rgba(167, 139, 250, 0.18);
+}
+
+.contrast-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  font-weight: 800;
+  align-self: flex-start;
+}
+.contrast-tag-dark {
+  background: rgba(71, 85, 105, 0.3);
+  color: #94a3b8;
+}
+.contrast-tag-light {
+  background: rgba(167, 139, 250, 0.28);
+  color: #c7d2fe;
+}
+
+.contrast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contrast-row {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.contrast-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.5px;
+  padding-top: 1px;
+}
+.contrast-num-light { color: #a78bfa; }
+
+.contrast-h {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #cbd5e1;
+  margin-bottom: 2px;
+}
+.contrast-h-light { color: #fff; }
+
+.contrast-p {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.55;
+}
+.contrast-p-light { color: #cbd5e1; }
+
+/* 中间分隔（向上箭头表达拉开差距） */
+.contrast-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 4px;
+}
+.contrast-divider-line {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, #fbbf24, transparent);
+}
+.contrast-divider-icon {
+  font-size: 22px;
+  color: #fbbf24;
+  text-shadow: 0 0 16px rgba(251, 191, 36, 0.6);
+}
+
+.contrast-punch {
+  margin: 28px auto 0;
+  text-align: center;
+  font-size: clamp(16px, 1.7vw, 22px);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.6;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(167, 139, 250, 0.08));
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 12px;
+  display: inline-block;
+  align-self: center;
+}
+
+/* ============================================================
+   Slide 13: 最终愿景 + 行动号召（高潮页）
+   ============================================================ */
+.slide-finale {
+  position: relative;
+  background:
+    radial-gradient(ellipse at center, rgba(99, 102, 241, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at top, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
+    linear-gradient(180deg, #0d1633 0%, #06080f 100%);
+  text-align: center;
+  padding-top: 48px;
+  padding-bottom: 56px;
+}
+
+.finale-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 720px;
+  height: 720px;
+  max-width: 90%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+.slide-finale > * { position: relative; z-index: 1; }
+
+.finale-tag {
+  font-size: 11px;
+  color: #fbbf24;
+  letter-spacing: 4px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.finale-title {
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.25;
+  letter-spacing: -1px;
+  margin: 0 auto 16px;
+  max-width: 1100px;
+}
+
+.finale-grad {
+  background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6, #fbbf24);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.finale-sub {
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: #94a3b8;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+  max-width: 880px;
+}
+
+/* 三段递进 */
+.finale-steps {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto 28px;
+}
+
+.fstep {
+  flex: 1;
+  min-width: 220px;
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 14px 16px 14px;
+  text-align: left;
+}
+.fstep-final {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.16), rgba(167, 139, 250, 0.08));
+  border-color: rgba(251, 191, 36, 0.45);
+  box-shadow: 0 0 32px rgba(251, 191, 36, 0.15);
+}
+
+.fstep-num {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #818cf8;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.fstep-final .fstep-num { color: #fbbf24; }
+
+.fstep-h {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.fstep-p {
+  font-size: 12.5px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+.fstep-final .fstep-p { color: #fde68a; }
+
+.fstep-arrow {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #818cf8;
+  font-weight: 800;
+}
+
+/* 情绪型正文 */
+.finale-narrative {
+  max-width: 880px;
+  margin: 0 auto 28px;
+  text-align: left;
+}
+
+.fn-block {
+  font-size: 13.5px;
+  color: #cbd5e1;
+  line-height: 1.85;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin: 0 0 10px 0;
+  background: rgba(15, 23, 42, 0.4);
+  border-left: 3px solid #475569;
+}
+.fn-block-future {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.04));
+  border-left-color: #a78bfa;
+}
+
+.fn-label {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  background: rgba(71, 85, 105, 0.4);
+  color: #94a3b8;
+  vertical-align: 2px;
+}
+.fn-label-future {
+  background: rgba(167, 139, 250, 0.3);
+  color: #c7d2fe;
+}
+
+.fn-statement {
+  text-align: center;
+  font-size: clamp(15px, 1.6vw, 19px);
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.7;
+  padding: 16px 0 4px;
+  margin: 0;
+}
+
+/* 中心收尾大字 */
+.finale-ending {
+  margin: 28px auto 24px;
+  text-align: center;
+}
+
+.fend-main {
+  font-size: clamp(28px, 4.5vw, 60px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.3;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.fend-grad-blue {
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.fend-grad-gold {
+  background: linear-gradient(90deg, #fbbf24, #f472b6, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.fend-second {
+  font-size: clamp(15px, 1.6vw, 20px);
+  color: #cbd5e1;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+/* 行动号召 */
+.finale-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 28px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(167, 139, 250, 0.1));
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  border-radius: 12px;
+  margin: 8px auto 0;
+  box-shadow: 0 8px 32px rgba(251, 191, 36, 0.15);
+}
+
+.cta-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.18);
+  padding: 5px 11px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.cta-text {
+  font-size: clamp(13px, 1.3vw, 16px);
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.cta-highlight {
+  color: #fbbf24;
+  font-weight: 800;
+}
+
+/* ============================================================
+   响应式
+   ============================================================ */
+@media (max-width: 1024px) {
+  .cover-points,
+  .why-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .vs-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .vs-plus {
+    flex-direction: row;
+    padding: 6px 0;
+  }
+  .rhythm-grid { grid-template-columns: 1fr; }
+  .budget-grid { grid-template-columns: 1fr; gap: 14px; }
+  .budget-card.budget-b { transform: none; }
+  .budget-approve { flex-direction: column; gap: 8px; align-items: flex-start; }
+  /* 第 7 屏：信息流改为垂直堆叠 */
+  .infoflow-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .if-arrow {
+    transform: rotate(90deg);
+    padding: 4px 0;
+  }
+  /* 第 8/9/10 屏：场景卡片 5 → 3 列 */
+  .scene-grid { grid-template-columns: repeat(3, 1fr); }
+  /* 第 11 屏：管理流改为竖排 */
+  .mgmt-flow { flex-direction: column; }
+  .mgmt-arrow { transform: rotate(90deg); padding: 4px 0; }
+  .mgmt-node { min-width: 0; width: 100%; max-width: 480px; align-self: center; }
+  /* 第 12 屏：成长飞轮改为竖排（中心 → 三层堆叠）*/
+  .growth-wheel {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 12px;
+  }
+  .gw-center {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: row;
+    gap: 14px;
+    padding: 18px 22px;
+  }
+  .gw-center-icon { font-size: 38px; margin-bottom: 0; }
+  .gw-center-label { text-align: left; font-size: 15px; }
+  .gw-layer-data { grid-row: 2; grid-column: 1; }
+  .gw-layer-train { grid-row: 3; grid-column: 1; }
+  .gw-layer-feedback { grid-row: 4; grid-column: 1; }
+  /* 第 12 屏：对比改为竖排 */
+  .contrast-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .contrast-divider {
+    flex-direction: row;
+    padding: 4px 0;
+  }
+  .contrast-divider-line {
+    height: 2px;
+    width: auto;
+    background: linear-gradient(90deg, transparent, #fbbf24, transparent);
+  }
+  /* 第 13 屏：递进步骤竖排 */
+  .finale-steps { flex-direction: column; align-items: stretch; }
+  .fstep-arrow { transform: rotate(90deg); justify-content: center; padding: 4px 0; }
+}
+
+@media (max-width: 640px) {
+  .slide { padding: 36px 5vw 32px; min-height: 72vh; }
+  .cover-points,
+  .why-grid,
+  .rhythm-grid {
+    grid-template-columns: 1fr;
+  }
+  .cover-title { font-size: 28px; }
+  .tech-flow { flex-direction: column; }
+  .tf-arrow { transform: rotate(90deg); }
+  .tf-node { width: 100%; max-width: 320px; }
+  .scene-grid { grid-template-columns: 1fr; }
+  .slide-sub { margin: -8px 0 18px; }
+  .finale-cta { flex-direction: column; gap: 10px; padding: 14px 20px; }
+  .cta-text { text-align: center; }
+}
+  /* ============================================================
+     Local embed polish — only for the AI product planning tab
+     ============================================================ */
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+  body {
+    overflow-y: auto;
+  }
+  .deck {
+    margin: 0;
+  }
+  .slide {
+    min-height: 100vh;
+    padding-top: clamp(28px, 4vh, 42px);
+    padding-bottom: clamp(28px, 4vh, 42px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .slide-finale {
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: clamp(34px, 5vh, 52px);
+    padding-bottom: clamp(30px, 5vh, 48px);
+  }
+  .slide-finale .slide-num {
+    top: 22px;
+  }
+  .slide-finale .finale-aura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+  .finale-tag {
+    margin-top: 8px;
+    margin-bottom: 12px;
+  }
+  .finale-title {
+    margin-bottom: 12px;
+  }
+  .finale-sub {
+    margin-bottom: 18px;
+  }
+  .finale-steps,
+  .finale-narrative,
+  .finale-ending {
+    margin-bottom: 18px;
+  }
+  .finale-cta {
+    margin-top: 8px;
+  }
+  .roadmap-slide-nav {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    border-radius: 999px;
+    background: rgba(6, 8, 15, 0.78);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(10px);
+  }
+  .roadmap-slide-nav button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(148, 163, 184, 0.32);
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.86);
+    color: #e5e7eb;
+    font-size: 17px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .roadmap-slide-nav button:hover {
+    border-color: rgba(96, 165, 250, 0.85);
+    color: #93c5fd;
+  }
+  .roadmap-slide-nav button:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+  .roadmap-slide-count {
+    min-width: 48px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #cbd5e1;
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 640px) {
+    .slide {
+      min-height: 100vh;
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+    .roadmap-slide-nav {
+      right: 10px;
+      bottom: 10px;
+    }
+  }
+  </style>
+</head>
+<body>
+<div class="deck">
+
+    <!-- ============ Slide 1: 项目立项页 ============ -->
+    <section class="slide slide-cover">
+      <div class="cover-tag">优特智厨 · 销售 AI 助手 · 项目立项提案</div>
+      <h1 class="cover-title">
+        建议启动<span class="grad-text">销售 AI 试点</span>：<br/>用 3 个月验证增长杠杆
+      </h1>
+      <p class="cover-sub">
+        以销售团队为第一场景，验证 AI 对效率、转化、经验复制和客户资产沉淀的实际价值。
+      </p>
+      <div class="cover-points">
+        <div class="cp-item">
+          <span class="cp-num">01</span>
+          <div class="cp-block">
+            <div class="cp-h">不是聊天机器人</div>
+            <div class="cp-text">而是销售效率与优秀经验复制的试点工程。</div>
+          </div>
+        </div>
+        <div class="cp-item">
+          <span class="cp-num">02</span>
+          <div class="cp-block">
+            <div class="cp-h">不是大平台投入</div>
+            <div class="cp-text">而是用 3 个月跑通一个可验证的业务闭环。</div>
+          </div>
+        </div>
+        <div class="cp-item">
+          <span class="cp-num">03</span>
+          <div class="cp-block">
+            <div class="cp-h">不是只服务销售</div>
+            <div class="cp-text">而是为公司级 AI 改造建立第一个样板。</div>
+          </div>
+        </div>
+      </div>
+      <div class="cover-punchline">
+        先用<span class="hl">小预算验证确定性</span>，再决定是否扩大投入。
+      </div>
+      <div class="scroll-hint">↓ 向下滚动查看完整提案</div>
+    </section>
+
+    <!-- ============ Slide 2: 当前销售瓶颈 ============ -->
+    <section class="slide slide-why">
+      <div class="slide-num">02 / 14</div>
+      <h2 class="slide-title">当前销售瓶颈，<span class="hl-inline">不是缺系统，而是过程还不够智能</span></h2>
+      <p class="slide-sub">产品复杂、场景复杂、客户复杂，销售不能再只靠个人经验推进。</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <div class="why-h">产品与场景复杂</div>
+          <div class="why-p">客户类型多、应用场景多、方案组合多，销售需要快速匹配专业答案。</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🧠</div>
+          <div class="why-h">优秀经验难复制</div>
+          <div class="why-p">高手知道怎么判断客户、处理异议、推进成交，但经验主要沉淀在个人身上。</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🚶</div>
+          <div class="why-h">新人上手慢</div>
+          <div class="why-p">新人反复问产品、问案例、问话术，客户沟通质量不稳定。</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">👁️</div>
+          <div class="why-h">管理看不清过程</div>
+          <div class="why-p">客户为什么停滞、异议卡在哪里、下一步该怎么推，主管往往事后才知道。</div>
+        </div>
+      </div>
+      <div class="punchline punchline-strong">
+        <span class="hl-soft">CRM</span> 让过程可记录，<span class="hl">AI</span> 让过程可判断、可推荐、可复盘。
+      </div>
+    </section>
+
+    <!-- ============ Slide 3: 为什么销售是第一站 ============ -->
+    <section class="slide slide-station">
+      <div class="slide-num">03 / 14</div>
+      <h2 class="slide-title">为什么从销售开始？<br/>因为它<span class="hl-inline">离收入最近，也最容易验证价值</span></h2>
+      <p class="slide-sub">销售场景能最快证明 AI 是否真的有业务价值，而不是停留在概念展示。</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">💰</div>
+          <div class="why-h">离收入最近</div>
+          <div class="why-p">AI 对响应速度、方案效率和客户推进的改善，最容易转化为经营结果。</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <div class="why-h">痛点最明确</div>
+          <div class="why-p">问答、话术、方案、复盘、跟进提醒，都是每天真实发生的销售动作。</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📊</div>
+          <div class="why-h">数据最容易闭环</div>
+          <div class="why-p">使用率、答案覆盖率、方案生成时间、复盘完成率都可以量化。</div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔁</div>
+          <div class="why-h">成功最容易复制</div>
+          <div class="why-p">销售跑通后，方法可以复制到售后、研发、制造和管理。</div>
+        </div>
+      </div>
+      <div class="punchline punchline-strong">
+        销售不是终点，<span class="hl">而是公司 AI 化最适合打穿的第一条业务链路</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 4: 第一阶段销售效率闭环 ============ -->
+    <section class="slide slide-loop">
+      <div class="slide-num">04 / 14</div>
+      <h2 class="slide-title">第一阶段先跑通一个闭环：<br/><span class="hl-inline">知识进来，销售用起来，反馈沉淀下来</span></h2>
+      <p class="slide-sub">AI 不是一次性问答工具，而是一个能随着销售使用不断成长的业务系统。</p>
+      <div class="tech-flow">
+        <div class="tf-node">
+          <div class="tf-icon">📚</div>
+          <div class="tf-label">公司知识库</div>
+          <div class="tf-sub">产品资料 / 客户案例 /<br/>应用场景 / 竞品对比 /<br/>FAQ / 售后问题</div>
+        </div>
+        <div class="tf-arrow">→</div>
+        <div class="tf-node">
+          <div class="tf-icon">🔍</div>
+          <div class="tf-label">AI 检索与生成</div>
+          <div class="tf-sub">客户问答 / 方案草稿 /<br/>话术建议 / 异议处理</div>
+        </div>
+        <div class="tf-arrow">→</div>
+        <div class="tf-node tf-highlight">
+          <div class="tf-icon">💡</div>
+          <div class="tf-label">销售实际使用</div>
+          <div class="tf-sub">拜访前准备 / 客户沟通 /<br/>方案输出 / 跟进计划</div>
+        </div>
+        <div class="tf-arrow">→</div>
+        <div class="tf-node tf-highlight tf-highlight-warm">
+          <div class="tf-icon">✅</div>
+          <div class="tf-label">人工确认与反馈</div>
+          <div class="tf-sub">选择更好答案 / 修正错误答案 /<br/>补充优秀话术</div>
+        </div>
+        <div class="tf-arrow tf-loop">↺</div>
+        <div class="tf-node">
+          <div class="tf-icon">🌱</div>
+          <div class="tf-label">知识库自成长</div>
+          <div class="tf-sub">沉淀新问题 / 新案例 /<br/>新话术 / 新场景</div>
+        </div>
+      </div>
+      <div class="tech-desc">
+        AI 先做助理，人负责确认；<span class="hl">确认后的经验，才真正变成组织知识</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 5: 3 个月研究 + 试点节奏 ============ -->
+    <section class="slide slide-pilot">
+      <div class="slide-num">05 / 14</div>
+      <h2 class="slide-title">用 3 个月跑通销售 AI 第一个<span class="hl-inline">闭环</span></h2>
+      <p class="slide-sub">第 1 个月做应用研究与样板设计，第 2–3 个月进入销售试点。</p>
+
+      <div class="rhythm-grid">
+        <!-- 第 1 个月：研究设计 -->
+        <div class="rhythm-card rhythm-research">
+          <div class="rh-stage-tag">研究设计</div>
+          <div class="rh-month">第 1 个月</div>
+          <div class="rh-phase">AI 应用研究与销售样板设计</div>
+          <div class="rh-desc">邀请豆爸团队参与，梳理销售链路中的 AI 切入点，明确问答、方案、话术、复盘等优先场景，形成试点方案。</div>
+        </div>
+
+        <!-- 第 2 个月：试点上线 -->
+        <div class="rhythm-card rhythm-pilot">
+          <div class="rh-stage-tag rh-stage-tag-pilot">试点实施</div>
+          <div class="rh-month">第 2 个月</div>
+          <div class="rh-phase">小范围销售试点上线</div>
+          <div class="rh-desc">选择 5–10 名销售/主管试用，补强知识库、话术库、案例库，上线客户问答、拜访准备、方案草稿。</div>
+        </div>
+
+        <!-- 第 3 个月：强化与复盘 -->
+        <div class="rhythm-card rhythm-review">
+          <div class="rh-stage-tag rh-stage-tag-pilot">试点实施</div>
+          <div class="rh-month">第 3 个月</div>
+          <div class="rh-phase">试点强化与业务复盘</div>
+          <div class="rh-desc">上线拜访复盘、跟进建议、主管查看，评估使用率、答案覆盖率、方案效率和销售反馈。</div>
+        </div>
+
+        <!-- 第 4 个月起：复制 -->
+        <div class="rhythm-card rhythm-replicate">
+          <div class="rh-stage-tag rh-stage-tag-replicate">场景复制</div>
+          <div class="rh-month">第 4 个月起</div>
+          <div class="rh-phase">复制到第二个业务场景</div>
+          <div class="rh-desc">选择售后、研发、制造供应链或组织管理，继续采用「1 个月研究 + 1–2 个月试点」的节奏推进。</div>
+        </div>
+      </div>
+
+      <div class="punchline">
+        先<span class="hl">研究清楚</span>，再小范围试点；先跑通销售，<span class="hl">再复制到更多业务场景</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 6: A/B/C 三档预算投入 ============ -->
+    <section class="slide slide-budget">
+      <div class="slide-num">06 / 14</div>
+      <h2 class="slide-title">先用<span class="hl-inline">小预算买确定性</span>，再决定是否扩大投入</h2>
+      <p class="slide-sub">第一阶段只申请研究与销售试点资源，跨部门系统集成等试点成功后再启动。</p>
+
+      <div class="budget-grid">
+        <!-- A 档 -->
+        <div class="budget-card budget-a budget-approved">
+          <div class="bc-stage">A 档</div>
+          <div class="bc-name">应用研究与 Demo 强化</div>
+          <div class="bc-meta">
+            <div class="bc-meta-item">
+              <span class="bc-label">周期</span>
+              <span class="bc-value">第 1 个月</span>
+            </div>
+          </div>
+          <div class="bc-section">
+            <div class="bc-h">目标</div>
+            <div class="bc-p">完成销售 AI 场景研究、样板设计、Demo 强化。</div>
+          </div>
+          <div class="bc-section">
+            <div class="bc-h">结果</div>
+            <div class="bc-p">明确哪些场景值得进入试点。</div>
+          </div>
+        </div>
+
+        <!-- B 档（高亮，当前推荐）-->
+        <div class="budget-card budget-b budget-approved">
+          <div class="bc-recommend">★ 当前推荐</div>
+          <div class="bc-stage">B 档</div>
+          <div class="bc-name">销售试点实施</div>
+          <div class="bc-meta">
+            <div class="bc-meta-item">
+              <span class="bc-label">周期</span>
+              <span class="bc-value">第 2–3 个月</span>
+            </div>
+          </div>
+          <div class="bc-section">
+            <div class="bc-h">目标</div>
+            <div class="bc-p">完成知识库升级、销售试点、反馈闭环。</div>
+          </div>
+          <div class="bc-section">
+            <div class="bc-h">结果</div>
+            <div class="bc-p">验证是否能提升销售效率和过程质量。</div>
+          </div>
+        </div>
+
+        <!-- C 档 -->
+        <div class="budget-card budget-c">
+          <div class="bc-stage">C 档</div>
+          <div class="bc-name">跨部门复制与系统集成</div>
+          <div class="bc-meta">
+            <div class="bc-meta-item">
+              <span class="bc-label">周期</span>
+              <span class="bc-value">销售试点成功后</span>
+            </div>
+          </div>
+          <div class="bc-section">
+            <div class="bc-h">目标</div>
+            <div class="bc-p">扩展到售后、研发、制造、管理，并按需接入 CRM、企微、OA、BI、售后、IoT。</div>
+          </div>
+          <div class="bc-section">
+            <div class="bc-h">结果</div>
+            <div class="bc-p">形成公司级 AI 应用路线图。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- A+B 建议批准提示条 -->
+      <div class="budget-approve">
+        <span class="ba-label">本阶段建议</span>
+        <span class="ba-text">先批准 <strong class="ba-stage-a">A</strong> + <strong class="ba-stage-b">B</strong>：先完成研究与销售试点，<strong>再根据结果决定 C 阶段投入</strong>。</span>
+      </div>
+
+      <div class="punchline">
+        不是一次性押注，<span class="hl">而是分阶段验证</span>；不是先建大平台，<span class="hl">而是先跑通业务闭环</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 7: 信息流架构 — 业务现场 → AI 信息收集 → 组织知识资产 ============ -->
+    <section class="slide slide-infoflow">
+      <div class="slide-num">07 / 14</div>
+      <h2 class="slide-title">AI 的真正起点，是<span class="hl-inline">让组织开始自动收集信息</span></h2>
+      <p class="slide-sub">销售只是第一个入口，真正沉淀的是客户、产品、服务、制造和管理中的高价值信息。</p>
+
+      <div class="infoflow-grid">
+        <!-- 左：业务现场 -->
+        <div class="if-col if-source">
+          <div class="if-col-tag">业务现场</div>
+          <div class="if-col-h">真实信息发生地</div>
+          <div class="if-list">
+            <div class="if-item">💬 销售沟通</div>
+            <div class="if-item">🛠️ 售后服务</div>
+            <div class="if-item">📦 产品反馈</div>
+            <div class="if-item">⚙️ 研发需求</div>
+            <div class="if-item">🏭 工厂异常</div>
+            <div class="if-item">📋 管理会议</div>
+          </div>
+        </div>
+
+        <div class="if-arrow if-arrow-1">→</div>
+
+        <!-- 中：AI 信息收集层 -->
+        <div class="if-col if-engine">
+          <div class="if-col-tag if-col-tag-glow">AI 信息收集层</div>
+          <div class="if-col-h">自动处理引擎</div>
+          <div class="if-list">
+            <div class="if-item if-item-engine">📝 记录</div>
+            <div class="if-item if-item-engine">🔍 提取</div>
+            <div class="if-item if-item-engine">🗂️ 归类</div>
+            <div class="if-item if-item-engine">📊 总结</div>
+            <div class="if-item if-item-engine">🏷️ 打标签</div>
+            <div class="if-item if-item-engine">🎯 形成线索</div>
+          </div>
+        </div>
+
+        <div class="if-arrow if-arrow-2">→</div>
+
+        <!-- 右：组织知识资产 -->
+        <div class="if-col if-asset">
+          <div class="if-col-tag if-col-tag-asset">组织知识资产</div>
+          <div class="if-col-h">沉淀为可复用资产</div>
+          <div class="if-list">
+            <div class="if-item if-item-asset">客户知识库</div>
+            <div class="if-item if-item-asset">售后知识库</div>
+            <div class="if-item if-item-asset">产品知识库</div>
+            <div class="if-item if-item-asset">工艺知识库</div>
+            <div class="if-item if-item-asset">供应链知识库</div>
+            <div class="if-item if-item-asset">管理知识库</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="punchline">
+        过去信息流过组织，<span class="hl">未来信息沉淀进系统</span>。
+      </div>
+      <div class="infoflow-note">
+        AI 接入业务的第一价值，不是马上替代人，<br/>而是把原本会流失的信息<span class="hl-soft">收集起来、整理起来、沉淀下来</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 8: AI + 售后服务 ============ -->
+    <section class="slide slide-aftersale">
+      <div class="slide-num">08 / 14</div>
+      <h2 class="slide-title">AI + 售后服务：<span class="hl-inline">从被动维修，到主动服务</span></h2>
+      <p class="slide-sub">把每一次故障、维修、投诉和回访，都变成可复用的服务知识。</p>
+
+      <div class="scene-grid">
+        <div class="scene-card">
+          <div class="scene-num">01</div>
+          <div class="scene-h">工单自动总结</div>
+          <div class="scene-p">自动整理客户问题、设备型号、故障现象、处理过程和最终结果。</div>
+        </div>
+        <div class="scene-card">
+          <div class="scene-num">02</div>
+          <div class="scene-h">故障知识库</div>
+          <div class="scene-p">沉淀高频故障、维修步骤、配件更换和处理时长，减少重复摸索。</div>
+        </div>
+        <div class="scene-card">
+          <div class="scene-num">03</div>
+          <div class="scene-h">服务风险提醒</div>
+          <div class="scene-p">结合设备使用、历史工单和客户投诉，提前识别高风险客户和高风险设备。</div>
+        </div>
+        <div class="scene-card">
+          <div class="scene-num">04</div>
+          <div class="scene-h">客户回访建议</div>
+          <div class="scene-p">自动提醒售后或销售进行回访、满意度确认、复购和升级服务推荐。</div>
+        </div>
+        <div class="scene-card scene-card-loop">
+          <div class="scene-num">05</div>
+          <div class="scene-h">反哺产品研发</div>
+          <div class="scene-p">把高频故障和客户投诉自动汇总给产品、研发和质量团队。</div>
+        </div>
+      </div>
+
+      <div class="punchline">
+        售后不只是<span class="hl-soft">成本中心</span>，更是公司理解产品真实使用情况的<span class="hl">前线雷达</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 9: AI + 产品研发 ============ -->
+    <section class="slide slide-rd">
+      <div class="slide-num">09 / 14</div>
+      <h2 class="slide-title">AI + 产品研发：<span class="hl-inline">让一线反馈进入产品进化</span></h2>
+      <p class="slide-sub">客户需求、销售异议、售后问题和竞品信息，不再停留在会议里，而是进入产品决策链。</p>
+
+      <div class="scene-grid">
+        <div class="scene-card scene-rd">
+          <div class="scene-num">01</div>
+          <div class="scene-h">客户需求自动提取</div>
+          <div class="scene-p">从销售沟通、客户拜访、方案讨论中提取真实需求。</div>
+        </div>
+        <div class="scene-card scene-rd">
+          <div class="scene-num">02</div>
+          <div class="scene-h">产品问题聚类</div>
+          <div class="scene-p">把售后故障、客户吐槽、销售异议按模块、频率和严重程度归类。</div>
+        </div>
+        <div class="scene-card scene-rd">
+          <div class="scene-num">03</div>
+          <div class="scene-h">竞品反馈整理</div>
+          <div class="scene-p">沉淀竞品价格、功能、客户评价和市场打法，形成产品对比素材。</div>
+        </div>
+        <div class="scene-card scene-rd scene-card-loop">
+          <div class="scene-num">04</div>
+          <div class="scene-h">需求优先级建议</div>
+          <div class="scene-p">结合出现频率、客户价值、成交影响和技术难度，辅助产品排序。</div>
+        </div>
+        <div class="scene-card scene-rd">
+          <div class="scene-num">05</div>
+          <div class="scene-h">研发文档辅助</div>
+          <div class="scene-p">自动生成需求说明、用户故事、测试用例、版本说明和问题复盘。</div>
+        </div>
+      </div>
+
+      <div class="punchline">
+        研发不再只靠会议听反馈，<span class="hl">而是让真实业务数据持续推动产品迭代</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 10: AI + 制造供应链 ============ -->
+    <section class="slide slide-manufacture">
+      <div class="slide-num">10 / 14</div>
+      <h2 class="slide-title">AI + 制造供应链：<span class="hl-inline">从经验协同，到数据驱动</span></h2>
+      <p class="slide-sub">让订单、库存、交付、质量、工艺和供应商协同更透明。</p>
+
+      <div class="scene-grid">
+        <div class="scene-card scene-manu">
+          <div class="scene-num">01</div>
+          <div class="scene-icon">📦</div>
+          <div class="scene-h">订单与交付预测</div>
+          <div class="scene-p">结合销售机会、订单状态和历史交付周期，提前判断产能与交付压力。</div>
+        </div>
+        <div class="scene-card scene-manu scene-card-loop">
+          <div class="scene-num">02</div>
+          <div class="scene-icon">🔬</div>
+          <div class="scene-h">质量问题归因</div>
+          <div class="scene-p">关联生产异常、售后故障、客户反馈和批次信息，辅助定位质量问题。</div>
+        </div>
+        <div class="scene-card scene-manu scene-card-loop">
+          <div class="scene-num">03</div>
+          <div class="scene-icon">⚙️</div>
+          <div class="scene-h">工艺知识沉淀</div>
+          <div class="scene-p">把装配经验、调试方法、异常处理和老师傅经验沉淀为工艺知识库。</div>
+        </div>
+        <div class="scene-card scene-manu">
+          <div class="scene-num">04</div>
+          <div class="scene-icon">🚛</div>
+          <div class="scene-h">供应链风险提醒</div>
+          <div class="scene-p">根据物料到货、供应商交期和库存变化，提前发现交付风险。</div>
+        </div>
+        <div class="scene-card scene-manu">
+          <div class="scene-num">05</div>
+          <div class="scene-icon">🔄</div>
+          <div class="scene-h">产销协同</div>
+          <div class="scene-p">打通销售预测、生产计划、库存状态和交付排期，减少信息断层。</div>
+        </div>
+      </div>
+
+      <div class="punchline punchline-strong">
+        AI 让制造现场的经验、异常和协同过程，<span class="hl">变成可追踪、可复盘、可优化的数据资产</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 11: AI + 组织管理 ============ -->
+    <section class="slide slide-management">
+      <div class="slide-num">11 / 14</div>
+      <h2 class="slide-title">AI + 组织管理：<span class="hl-inline">从人盯人，到系统协同</span></h2>
+      <p class="slide-sub">让目标、任务、会议、项目和风险自动沉淀，减少管理中的信息黑洞。</p>
+
+      <!-- 流动结构：会议 → 任务 → 项目 → 风险 → 复盘 -->
+      <div class="mgmt-flow">
+        <div class="mgmt-node">
+          <div class="mn-step">01</div>
+          <div class="mn-icon">🎙️</div>
+          <div class="mn-h">会议自动纪要与任务拆解</div>
+          <div class="mn-p">自动整理会议结论、待办事项、责任人和截止时间。</div>
+        </div>
+        <div class="mgmt-arrow">→</div>
+        <div class="mgmt-node">
+          <div class="mn-step">02</div>
+          <div class="mn-icon">📌</div>
+          <div class="mn-h">项目进度跟踪</div>
+          <div class="mn-p">自动汇总重点项目状态、延期风险、资源卡点和下一步动作。</div>
+        </div>
+        <div class="mgmt-arrow">→</div>
+        <div class="mgmt-node">
+          <div class="mn-step">03</div>
+          <div class="mn-icon">🔗</div>
+          <div class="mn-h">跨部门协同提醒</div>
+          <div class="mn-p">销售、售后、研发、生产之间的问题流转自动提醒，减少遗漏和扯皮。</div>
+        </div>
+        <div class="mgmt-arrow">→</div>
+        <div class="mgmt-node mgmt-node-key">
+          <div class="mn-step">04</div>
+          <div class="mn-icon">📡</div>
+          <div class="mn-h">管理驾驶舱</div>
+          <div class="mn-p">整合 CRM、OA、BI、售后、IoT 和生产数据，提示经营风险与机会。</div>
+        </div>
+        <div class="mgmt-arrow mgmt-arrow-loop">↺</div>
+        <div class="mgmt-node mgmt-node-end">
+          <div class="mn-step">05</div>
+          <div class="mn-icon">🧠</div>
+          <div class="mn-h">组织经验沉淀</div>
+          <div class="mn-p">把项目复盘、成功打法、失败案例和管理方法沉淀为组织方法库。</div>
+        </div>
+      </div>
+
+      <div class="punchline punchline-strong">
+        AI 不是多一个管理工具，<span class="hl">而是让组织协同从"靠人追"变成"系统自动推进"</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 12: 为什么 AI 越早接入，组织越早变强（成长飞轮） ============ -->
+    <section class="slide slide-growth">
+      <div class="slide-num">12 / 14</div>
+      <h2 class="slide-title">为什么 <span class="hl-inline">AI 越早接入</span>，组织越早变强？</h2>
+      <p class="slide-sub">AI 不会凭空懂业务，它需要真实数据、持续反馈和人工校准。</p>
+
+      <!-- 核心公式（× 乘号，强调互相放大） -->
+      <div class="growth-formula">
+        <span class="gf-target">AI 变强</span>
+        <span class="gf-eq">=</span>
+        <span class="gf-term gf-term-blue">真实业务数据</span>
+        <span class="gf-plus gf-mul">×</span>
+        <span class="gf-term gf-term-purple">人工校准</span>
+        <span class="gf-plus gf-mul">×</span>
+        <span class="gf-term gf-term-gold">场景复用</span>
+      </div>
+      <div class="growth-formula-note">
+        没有真实数据，校准没有对象；没有人工校准，数据容易变成噪音；没有场景复用，知识不能变成能力。
+      </div>
+
+      <!-- 三层成长飞轮：中心大脑 + 三层 -->
+      <div class="growth-wheel">
+        <!-- 中心 -->
+        <div class="gw-center">
+          <div class="gw-center-icon">🧠</div>
+          <div class="gw-center-label">优特 AI 大脑</div>
+        </div>
+
+        <!-- 第一层：数据流入（蓝） -->
+        <div class="gw-layer gw-layer-data">
+          <div class="gw-layer-tag">第一层</div>
+          <div class="gw-layer-h">真实业务信息持续流入</div>
+          <div class="gw-layer-text">
+            销售沟通、客户需求、售后工单、研发设计、生产异常、供应商协同、会议纪要、管理复盘
+          </div>
+        </div>
+
+        <!-- 第二层：人机校准（紫） -->
+        <div class="gw-layer gw-layer-train">
+          <div class="gw-layer-tag">第二层</div>
+          <div class="gw-layer-h">人机协同持续校准</div>
+          <div class="gw-layer-text">
+            语音转写、结构化提取、自动总结、人工确认、错误纠正、知识入库、案例沉淀
+          </div>
+        </div>
+
+        <!-- 第三层：能力反哺（金） -->
+        <div class="gw-layer gw-layer-feedback">
+          <div class="gw-layer-tag">第三层</div>
+          <div class="gw-layer-h">组织能力持续增强</div>
+          <div class="gw-layer-text">
+            销售话术、方案生成、售后诊断、研发需求、质量归因、供应链预警、项目跟踪、管理决策
+          </div>
+        </div>
+      </div>
+
+      <!-- 底部强化 -->
+      <div class="growth-punch">
+        <div class="growth-punch-main">
+          越早接入真实业务，越早开始积累；<br/>
+          越早开始积累，<span class="hl">越快形成优特自己的 AI 壁垒</span>。
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Slide 13: 不拥抱 AI vs 拥抱 AI（情绪转折页） ============ -->
+    <section class="slide slide-contrast">
+      <div class="slide-num">13 / 14</div>
+      <h2 class="slide-title contrast-title">不拥抱 AI 的科技公司，<span class="hl">会越来越慢</span></h2>
+      <p class="slide-sub contrast-sub">不是因为人不努力，而是因为组织无法吸收每天产生的信息。</p>
+
+      <div class="contrast-grid">
+        <!-- 左：不拥抱 AI（暗淡） -->
+        <div class="contrast-col contrast-dark">
+          <div class="contrast-tag contrast-tag-dark">不拥抱 AI</div>
+          <div class="contrast-list">
+            <div class="contrast-row">
+              <span class="contrast-num">01</span>
+              <div>
+                <div class="contrast-h">信息继续流失</div>
+                <div class="contrast-p">客户需求、售后问题、研发经验、制造异常散落在个人和群聊里。</div>
+              </div>
+            </div>
+            <div class="contrast-row">
+              <span class="contrast-num">02</span>
+              <div>
+                <div class="contrast-h">经验继续依赖少数人</div>
+                <div class="contrast-p">优秀销售、老师傅、核心研发、老售后越来越关键，也越来越难复制。</div>
+              </div>
+            </div>
+            <div class="contrast-row">
+              <span class="contrast-num">03</span>
+              <div>
+                <div class="contrast-h">协同继续靠人催</div>
+                <div class="contrast-p">会议、项目、风险、跨部门问题靠人盯，组织响应越来越慢。</div>
+              </div>
+            </div>
+            <div class="contrast-row">
+              <span class="contrast-num">04</span>
+              <div>
+                <div class="contrast-h">决策继续滞后</div>
+                <div class="contrast-p">管理层看到的是结果，不是过程；看到的是问题爆发，不是风险提前出现。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 中间分隔（向上箭头表达拉开差距） -->
+        <div class="contrast-divider">
+          <div class="contrast-divider-line"></div>
+          <div class="contrast-divider-icon">⚡</div>
+          <div class="contrast-divider-line"></div>
+        </div>
+
+        <!-- 右：拥抱 AI（高亮） -->
+        <div class="contrast-col contrast-light">
+          <div class="contrast-tag contrast-tag-light">拥抱 AI</div>
+          <div class="contrast-list">
+            <div class="contrast-row contrast-row-light">
+              <span class="contrast-num contrast-num-light">01</span>
+              <div>
+                <div class="contrast-h contrast-h-light">信息开始沉淀</div>
+                <div class="contrast-p contrast-p-light">每一次客户沟通、售后服务、研发讨论、生产异常都进入系统。</div>
+              </div>
+            </div>
+            <div class="contrast-row contrast-row-light">
+              <span class="contrast-num contrast-num-light">02</span>
+              <div>
+                <div class="contrast-h contrast-h-light">经验开始复制</div>
+                <div class="contrast-p contrast-p-light">优秀打法、解决方案、故障处理、产品判断变成知识库和方法库。</div>
+              </div>
+            </div>
+            <div class="contrast-row contrast-row-light">
+              <span class="contrast-num contrast-num-light">03</span>
+              <div>
+                <div class="contrast-h contrast-h-light">协同开始自动推进</div>
+                <div class="contrast-p contrast-p-light">会议形成任务，项目识别风险，跨部门问题自动提醒闭环。</div>
+              </div>
+            </div>
+            <div class="contrast-row contrast-row-light">
+              <span class="contrast-num contrast-num-light">04</span>
+              <div>
+                <div class="contrast-h contrast-h-light">决策开始提前</div>
+                <div class="contrast-p contrast-p-light">系统从销售、售后、产品、制造数据中发现风险和机会。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contrast-punch">
+        AI 不会立刻淘汰公司，<br/>但<span class="hl">会持续拉开组织进化速度的差距</span>。
+      </div>
+    </section>
+
+    <!-- ============ Slide 14: 最终愿景 + 行动号召 ============ -->
+    <section class="slide slide-finale">
+      <div class="slide-num">14 / 14</div>
+      <div class="finale-aura"></div>
+
+      <div class="finale-tag">FINAL · 行动号召</div>
+      <h2 class="finale-title">让优特智厨成为<br/><span class="finale-grad">会自我进化的科技型组织</span></h2>
+      <p class="finale-sub">从销售试点开始，让每一次客户沟通、售后服务、产品反馈和生产异常，都成为组织成长的养料。</p>
+
+      <!-- 三段递进 -->
+      <div class="finale-steps">
+        <div class="fstep">
+          <div class="fstep-num">第一步</div>
+          <div class="fstep-h">从销售开始</div>
+          <div class="fstep-p">用 3 个月跑通 AI 应用研究、销售试点和反馈闭环。</div>
+        </div>
+        <div class="fstep-arrow">→</div>
+        <div class="fstep">
+          <div class="fstep-num">第二步</div>
+          <div class="fstep-h">复制到关键业务现场</div>
+          <div class="fstep-p">售后、研发、制造供应链、组织管理，一个场景一个场景复制。</div>
+        </div>
+        <div class="fstep-arrow">→</div>
+        <div class="fstep fstep-final">
+          <div class="fstep-num">第三步</div>
+          <div class="fstep-h">形成组织第二大脑</div>
+          <div class="fstep-p">让信息自动收集，知识持续沉淀，流程不断优化，组织持续进化。</div>
+        </div>
+      </div>
+
+      <!-- 情绪型正文（压缩为两段对照 + 一句收束） -->
+      <div class="finale-narrative">
+        <p class="fn-block">
+          <span class="fn-label">过去</span>
+          公司的能力主要来自人：<br/>
+          优秀销售、老售后、核心研发、老师傅和管理者的经验。
+        </p>
+        <p class="fn-block fn-block-future">
+          <span class="fn-label fn-label-future">未来</span>
+          公司的能力不仅来自人，也来自系统：<br/>
+          每一次沟通、每一次问题、每一次反馈、每一次复盘，都能<span class="hl">沉淀为长期资产</span>。
+        </p>
+      </div>
+
+      <!-- 中心收尾大字 -->
+      <div class="finale-ending">
+        <div class="fend-main">
+          先让<span class="fend-grad-blue">销售变强</span>，<br/>
+          再让<span class="fend-grad-gold">组织进化</span>。
+        </div>
+        <div class="fend-second">
+          越早启动，越早积累；<br/>
+          越早积累，<span class="hl">越快形成壁垒</span>。
+        </div>
+      </div>
+
+      <!-- 行动号召 -->
+      <div class="finale-cta">
+        <div class="cta-label">立即行动</div>
+        <div class="cta-text">建议立即启动<span class="cta-highlight">销售 AI 试点项目</span>，用 3 个月验证第一条业务闭环</div>
+      </div>
+    </section>
+
+  </div>
+  <div class="roadmap-slide-nav" aria-label="幻灯片翻页">
+    <button type="button" id="roadmap-prev" aria-label="上一页">↑</button>
+    <span class="roadmap-slide-count" id="roadmap-count">1 / 14</span>
+    <button type="button" id="roadmap-next" aria-label="下一页">↓</button>
+  </div>
+  <script>
+    (function () {
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+      var prev = document.getElementById('roadmap-prev');
+      var next = document.getElementById('roadmap-next');
+      var count = document.getElementById('roadmap-count');
+      var current = 0;
+
+      function update() {
+        var middle = window.scrollY + window.innerHeight / 2;
+        var nearest = 0;
+        var best = Infinity;
+        slides.forEach(function (slide, index) {
+          var center = slide.offsetTop + slide.offsetHeight / 2;
+          var diff = Math.abs(center - middle);
+          if (diff < best) {
+            best = diff;
+            nearest = index;
+          }
+        });
+        current = nearest;
+        count.textContent = (current + 1) + ' / ' + slides.length;
+        prev.disabled = current === 0;
+        next.disabled = current === slides.length - 1;
+      }
+
+      function go(delta) {
+        var target = Math.max(0, Math.min(slides.length - 1, current + delta));
+        slides[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      prev.addEventListener('click', function () { go(-1); });
+      next.addEventListener('click', function () { go(1); });
+      window.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+      window.addEventListener('keydown', function (event) {
+        if (event.key === 'ArrowUp' || event.key === 'PageUp') go(-1);
+        if (event.key === 'ArrowDown' || event.key === 'PageDown') go(1);
+      });
+      update();
+    })();
+  </script>
+</body>
+</html>
